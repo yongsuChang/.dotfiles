@@ -3,7 +3,7 @@
 - zsh : Custom shell
 - neovim : Forked project of vim
     - 0.9.5
-    - https://github.com/neovim/neovim/blob/master/INSTALL.md#ubuntu
+    - Link: [neovim install][nvim-link]
 ```
 # install
 sudo add-apt-repository ppa:neovim-ppa/unstable
@@ -32,13 +32,13 @@ sudo update-alternatives --config vi
 - fonts : CaskaydiaCove Nerd font (from. Nerd Fonts)
 - p10k : Shell styling
 - NodeJS : 
-    - https://github.com/nodesource/distributions?tab=readme-ov-file#using-ubuntu-nodejs-22
+    - Link: [NodeJs][node-link]
     - node : 22.13.0
     - npm : 10.9.2
 
 ### Build
 - pnpm : faster package installer
-    - https://pnpm.io/ko/installation
+    - Link: [pnpm install][pnpm-link]
     - 10.0.0
 ```
 ### Change some npm command to pnpm ###
@@ -59,3 +59,7 @@ fi
 ### Customize
 - NvChad : Fancier neovim
     - https://nvchad.com/docs/quickstart/install
+
+[nvim-link]: https://github.com/neovim/neovim/blob/master/INSTALL.md#ubuntu "Go neovim"
+[node-link]: https://github.com/nodesource/distributions?tab=readme-ov-file#using-ubuntu-nodejs-22 "Go node"
+[pnpm-link]: https://pnpm.io/ko/installation "Go pnpm"
