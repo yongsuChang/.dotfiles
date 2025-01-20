@@ -47,21 +47,6 @@
 - pnpm : faster package installer
     - Link: [pnpm install][pnpm-link]
     - 10.0.0
-```
-### Change some npm command to pnpm ###
-# make npm cofig for command
-sudo vim /usr/local/bin/npm
- 
-# inside of npm file
-if [[ "$1" == "run" && ( "$2" == "build" || "$2" == "start" ) ]]; then
-    echo "Redirecting npm run $2 to pnpm run $2..."
-    pnpm run "$2"
-elif [[ "$1" == "start" ]]; then
-    echo "Redirecting npm start to pnpm start..."
-    pnpm start
-fi
-```
-    
 
 ### Customize
 - NvChad : Fancier neovim
