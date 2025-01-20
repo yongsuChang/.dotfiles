@@ -29,7 +29,8 @@ sudo update-alternatives --config vi
 
 ## Manually installed
 ### Settings
-- fonts : CaskaydiaCove Nerd font (from. Nerd Fonts)
+- fonts : CaskaydiaCove Nerd font
+    - Link: [NERD FONTS][nerdfonts-link]
 - p10k : Shell styling
 - NodeJS : 
     - Link: [NodeJs][node-link]
@@ -58,8 +59,10 @@ fi
 
 ### Customize
 - NvChad : Fancier neovim
-    - https://nvchad.com/docs/quickstart/install
+    - Link: [NvChad install][nvchad-link]
 
 [nvim-link]: https://github.com/neovim/neovim/blob/master/INSTALL.md#ubuntu "Go neovim"
+[nerdfonts-link]: https://www.nerdfonts.com "Go Nerdfonts"
 [node-link]: https://github.com/nodesource/distributions?tab=readme-ov-file#using-ubuntu-nodejs-22 "Go node"
 [pnpm-link]: https://pnpm.io/ko/installation "Go pnpm"
+[nvchad-link]: https://nvchad.com/docs/quickstart/install "Go NvChad"
