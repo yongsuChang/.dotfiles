@@ -23,14 +23,17 @@
     sudo update-alternatives --install /usr/bin/ls ls /usr/bin/lsd 10
     ```
 
- - fd-find : file name search
-    - set command `fd` for fd-find
-        ```
-        // set command `fd` for fd-find
-        mkdir -p ~/.local/bin
-        ln -s $(which fdfind) ~/.local/bin/fd
-        ```
+- fd-find : file name search
+    ```
+    // set command `fd` for fd-find
+    mkdir -p ~/.local/bin
+    ln -s $(which fdfind) ~/.local/bin/fd
+    ```
 
+- openjdk17
+    ```
+    sudo apt install openjdk-17-jdk
+    ```
 
 
 ## Manually installed
@@ -38,6 +41,7 @@
 - fonts : CaskaydiaCove Nerd font
     - Link: [NERD FONTS][nerdfonts-link]
 - p10k : Shell styling
+    - Link : [PowerLevel10k][powerlevel10k-link]
 - NodeJS : 
     - Link: [NodeJs][node-link]
     - node : 22.13.0
@@ -54,6 +58,7 @@
 
 [nvim-link]: https://github.com/neovim/neovim/blob/master/INSTALL.md#ubuntu "Go neovim"
 [nerdfonts-link]: https://www.nerdfonts.com "Go Nerdfonts"
+[powerlevel10k-link]: https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#installation "Go p10k"
 [node-link]: https://github.com/nodesource/distributions?tab=readme-ov-file#using-ubuntu-nodejs-22 "Go node"
 [pnpm-link]: https://pnpm.io/ko/installation "Go pnpm"
 [nvchad-link]: https://nvchad.com/docs/quickstart/install "Go NvChad"
