@@ -34,6 +34,10 @@
     ```
     sudo apt install openjdk-17-jdk
     ```
+- maven
+    ```
+    sudo apt install maven
+    ```
 
 
 ## Manually installed

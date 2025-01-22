@@ -1,5 +1,7 @@
 # WSL 환경 설정
 ## 0. WSL이란?
+- Windows에 기본으로 설치할 수 있는 linux 환경
+- [WSL 설명][wsl-link]
 
 ### 0-1. 사용 이유?
 - 개발 세팅 간편화
@@ -89,6 +91,7 @@ sudo update-alternatives --config vi
     - Link: [NvChad install][nvchad-link]
 
 
+[wsl-link]: https://learn.microsoft.com/ko-kr/windows/wsl/install, "Go "
 [nvim-link]: https://github.com/neovim/neovim/blob/master/INSTALL.md#ubuntu "Go neovim"
 [node-link]: https://github.com/nodesource/distributions?tab=readme-ov-file#using-ubuntu-nodejs-22 "Go node"
 [pnpm-link]: https://pnpm.io/ko/installation "Go pnpm"
