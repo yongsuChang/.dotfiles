@@ -38,6 +38,10 @@
     ```
     sudo apt install maven
     ```
+- net-tools : netstat
+    ```
+    sudo apt install net-tools
+    ```
 
 
 ## Manually installed
