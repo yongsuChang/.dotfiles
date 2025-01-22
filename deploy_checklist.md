@@ -19,6 +19,7 @@
 ## Backend Deployment Checklist
 ### Test Deploy
 - [ ] application.properties에서 profile을 test로 설정한다.
+- [ ] application-test.properties에서 server.domain이 백엔드 도메인이 맞는지 확인한다.
 - [ ] application-test.properties에서 데이터베이스 schema가 원하는 곳인지 확인한다.
 - [ ] 원하는 백엔드 서버가 prod가 아닌 것을 다시 확인한다
 - [ ] deploy <product> <branch> <server> 명령어를 실행한다.
@@ -29,6 +30,7 @@
 - [ ] release 또는 deploy branch를 main branch에 git merge를 한다.
 - [ ] 시간이 된다면 ./gradlew run이 되는지 확인해 본다.
 - [ ] application.properties에서 profile을 prod로 설정한다.
+- [ ] application-test.properties에서 server.domain이 백엔드 도메인이 buildingcare.life가 맞는지 확인한다.
 - [ ] application-prod.properties에서 데이터베이스 schema가 contract인지 확인한다.
 - [ ] 원하는 백엔드 서버가 prod인지 prod2인지 확인한다
 - [ ] deploy <product> <branch> <server> 명령어를 실행한다.
