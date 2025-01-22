@@ -33,6 +33,7 @@
 - [ ] application-test.properties에서 server.domain이 백엔드 도메인이 buildingcare.life가 맞는지 확인한다.
 - [ ] application-prod.properties에서 데이터베이스 schema가 contract인지 확인한다.
 - [ ] 원하는 백엔드 서버가 prod인지 prod2인지 확인한다
+- [ ] 원하는 백엔드 서버가 본서버용 target group에 들어가 있는지 확인한다.
 - [ ] deploy <product> <branch> <server> 명령어를 실행한다.
 - [ ] 해당 백엔드 서버의 nginx가 제대로 설정되어있는지 확인한다.
 
