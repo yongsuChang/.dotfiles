@@ -24,3 +24,63 @@ esac
 alias ls='lsd'
 alias ll='lsd -l'
 alias l='lsd -Al'
+
+# 배포 관련
+deploy() {
+  # 프로젝트와 서버 값 제한
+  local selectedProject
+  local allowedServers=("prod" "prod2" "internal" "staging" "test")
+  local projectDir
+
+  # 첫 번째 인자: project
+  case $1 in
+    admin)
+      selectedProject="contract-admin-deploy.yml"
+      projectDir="~/git/land-contract-back/contract-admin"
+      ;;
+    report)
+      selectedProject="report-deploy"
+      projectDir="~/git/land-contract-back/contract-report"
+      ;;
+    *)
+      echo "❌ Error: Invalid project '$1'. Allowed: admin, report"
+      return 1
+      ;;
+  esac
+
+  # 두 번째 인자: branch
+  local branch=$2
+  if [ -z "$branch" ]; then
+    echo "❌ Error: Branch is required."
+    return 1
+  fi
+
+  # 세 번째 인자: server
+  local server=$3
+  if [[ ! " ${allowedServers[@]} " =~ " ${server} " ]]; then
+    echo "❌ Error: Invalid server '$server'. Allowed: ${allowedServers[*]}"
+    return 1
+  fi
+
+  # 최종 확인 메시지
+  echo "🔔 ${branch} 브랜치 환경으로 ${1} 프로젝트를 ${server} 서버에 배포하시겠습니까? (Y/n)"
+  read -r confirmation
+
+  case $confirmation in
+    [Yy]*)
+      echo "🚀 Deploying ${selectedProject} to ${server} with branch ${branch}..."
+
+      # 디렉토리에서 명령 실행
+      (cd ${projectDir/#\~/$HOME} && gh workflow run "${selectedProject}" --ref "${branch}" --field server="${server}")
+      ;;
+    [Nn]*)
+      echo "🛑 Deployment canceled."
+      ;;
+    *)
+      echo "❌ Invalid input. Deployment canceled."
+      ;;
+  esac
+}
+
+# zshrc에 alias 추가
+alias deploy="deploy"
