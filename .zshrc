@@ -39,7 +39,7 @@ deploy() {
       projectDir="~/git/land-contract-back/contract-admin"
       ;;
     report)
-      selectedProject="report-deploy"
+      selectedProject="report-deploy.yml"
       projectDir="~/git/land-contract-back/contract-report"
       ;;
     *)
