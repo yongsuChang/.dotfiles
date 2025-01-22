@@ -24,6 +24,7 @@ esac
 alias ls='lsd'
 alias ll='lsd -l'
 alias l='lsd -Al'
+alias notpush='git log --branches --not --remotes'
 
 # 배포 관련
 deploy() {
