@@ -6,6 +6,7 @@
     - Link: [neovim install][nvim-link]
         ```
         // install
+        sudo apt update
         sudo add-apt-repository ppa:neovim-ppa/unstable
         sudo apt install neovim
 
@@ -19,12 +20,20 @@
 - ripgrep : Die old grep (improved grep)
 - lsd : Prettier ls
     ```
+    // install
+    sudo apt update
+    sudo apt install lsd
+
     // set command `ls`
     sudo update-alternatives --install /usr/bin/ls ls /usr/bin/lsd 10
     ```
 
 - fd-find : file name search
     ```
+    // install
+    sudo apt update
+    sudo apt install fd-find
+
     // set command `fd` for fd-find
     mkdir -p ~/.local/bin
     ln -s $(which fdfind) ~/.local/bin/fd
@@ -32,15 +41,19 @@
 
 - openjdk17
     ```
+    sudo apt update
     sudo apt install openjdk-17-jdk
     ```
 - maven
     ```
+    sudo apt update
     sudo apt install maven
     ```
+
 ### Optional
 - net-tools : netstat
     ```
+    sudo apt update
     sudo apt install net-tools
     ```
 - gh : github cli
@@ -50,6 +63,11 @@
     echo "deb [signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
     sudo apt update
     sudo apt install gh
+    ```
+- maria-db : mysql fork
+    ```
+    sudo apt update
+    sudo apt install mariadb-server mariadb-client -y
     ```
 
 
