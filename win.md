@@ -69,6 +69,58 @@
     sudo apt update
     sudo apt install mariadb-server mariadb-client -y
     ```
+- pass & gpg : password manager
+    ```
+    // install
+    sudo apt update
+    sudo apt install pass gpg
+
+    // assert
+    pass --version
+
+    // create password
+    gpg --gen-key
+    gpg --list-keys
+
+    // init
+    pass init <gpg-id>
+
+    // add password
+    pass insert <password-name>
+
+    // show password
+    pass database/<password-name>
+    // ex) pass database/github_token
+    ```
+    ```
+    // git integration
+
+    // make git repository
+    cd ~/.password-store
+    git init
+    git remote add origin <git-repo>
+
+    // commit
+    git add .
+    git commit -m "init"
+    git push origin main
+    ```
+    ```
+    // clone from other device
+
+    // export gpg key
+    git clone <git-repo> ~/.password-store
+    gpg --export-secret-keys --armor "your-email@example.com" > gpg-key.asc
+
+    // import gpg key
+    gpg --import gpg-key.asc
+
+    // set trust
+    gpg --edit-key "your-email@example.com" trust
+
+    // init
+    pass init <gpg-id>
+    ```
 
 
 ## Manually installed
