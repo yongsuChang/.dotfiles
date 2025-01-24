@@ -5,6 +5,8 @@
 ---@type ChadrcConfig
 local M = {}
 
+-- vim 독립 클립보드 사용
+vim.opt.clipboard = "unnamedplus"
 
 M.header = {
   "Welcome to NVChad!",
