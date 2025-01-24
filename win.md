@@ -143,6 +143,19 @@
 - NvChad : Fancier neovim
     - Link: [NvChad install][nvchad-link]
 
+### Reminder
+- Wayland error
+    ```
+    // unset
+    unset WAYLAND_DISPLAY
+    unset XDG_RUNTIME_DIR
+
+    // set
+    export XDG_RUNTIME_DIR=/run/user/1000
+    touch /run/user/1000/wayland-0
+    chmod 600 /run/user/1000/wayland-0
+    ```
+
 [nvim-link]: https://github.com/neovim/neovim/blob/master/INSTALL.md#ubuntu "Go neovim"
 [nerdfonts-link]: https://www.nerdfonts.com "Go Nerdfonts"
 [powerlevel10k-link]: https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#installation "Go p10k"
