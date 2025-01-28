@@ -18,6 +18,11 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # NVM 로드
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # bash-completion 로드
+
 #
 # Personal configs
 #
