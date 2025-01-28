@@ -155,7 +155,24 @@
 
 ### Customize
 - NvChad : Fancier neovim
-    - Link: [NvChad install][nvchad-link]
+ - Link: [NvChad install][nvchad-link]
+
+### Language Server
+- jdtls-language-server
+    - Java grammar check
+    ```
+    npm install -g jdtls
+    ```
+- typescript-language-server
+    - TypeScript grammar check
+    ```
+    npm install -g typescript-language-server
+    ```
+- tailwindcss-language-server
+    - TailwindCSS grammar check
+    ```
+    npm install -g tailwindcss-language-server
+    ```
 
 ### Reminder
 - Wayland error

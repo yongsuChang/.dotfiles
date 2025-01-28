@@ -5,6 +5,7 @@ return {
     opts = require "configs.conform",
   },
 
+  -- Java 관련 LSP 설정
   {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
@@ -15,6 +16,32 @@ return {
     config = function()
       -- 여기서 jdtls 설정 가능
       require "configs.lspconfig"
+    end,
+  },
+
+  -- TypeScript 관련 LSP 설정
+  {
+    "neovim/nvim-lspconfig",
+    ft = { "typescript", "javascript" },
+    dependencies = {
+      "williamboman/mason.nvim", -- LSP 설치 관리
+      "williamboman/mason-lspconfig.nvim" -- LSP 설정 관리
+    },
+    config = function()
+      require("lspconfig").tsserver.setup({})
+    end,
+  },
+
+  -- TailwindCSS 관련 LSP 설정
+  {
+    "neovim/nvim-lspconfig",
+    ft = { "html", "css", "javascript", "typescript" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim"
+    },
+    config = function()
+      require("lspconfig").tailwindcss.setup({})
     end,
   },
 
