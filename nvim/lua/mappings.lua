@@ -7,7 +7,12 @@ local builtin = require("telescope.builtin")
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
-map("n", "<C-p>", ":Telescope find_files<CR>", { desc = "Find files" })
+
+-- 검색
+map("n", "<C-p>", ":Telescope find_files<CR>", { desc = "Find files" }) -- 파일 검색
+map("n", "<S-F>", ":Telescope live_grep<CR>", { desc = "Search Text" }) -- 텍스트 검색
+map("n", "<S-R>", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Find and Replace" })
+map("n", "<S-R>", ":lua require('spectre').open()<CR>", { noremap = true, silent = true, desc = "Find and Replace" })
 
 ---- Theme switcher
 map("n", "<C-t>", function()
