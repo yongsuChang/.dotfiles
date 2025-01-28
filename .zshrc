@@ -30,6 +30,8 @@ alias ls='lsd'
 alias ll='lsd -l'
 alias l='lsd -Al'
 alias notpush='git log --branches --not --remotes'
+# 클립보드 오류시 해결
+alias clipboard='{ unset WAYLAND_DISPLAY; unset XDG_RUNTIME_DIR; export XDG_RUNTIME_DIR=/run/user/1000; touch /run/user/1000/wayland-0; chmod 600 /run/user/1000/wayland-0; }'
 
 # 배포 관련
 deploy() {
@@ -166,3 +168,5 @@ dbclone() {
 # zshrc에 alias 추가
 alias deploy="deploy"
 alias dbclone="dbclone"
+
+export TERM=xterm-256color
