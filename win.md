@@ -121,6 +121,11 @@
     // init
     pass init <gpg-id>
     ```
+- telnet : network tool
+    ```
+    sudo apt update
+    sudo apt install telnet
+    ```
 
 
 ## Manually installed
