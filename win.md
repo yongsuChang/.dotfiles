@@ -49,7 +49,33 @@
     sudo apt update
     sudo apt install maven
     ```
+- noto-san-cjk
+    ```
+    // install
+    sudo apt update && sudo apt install -y fonts-nanum fonts-noto-cjk fonts-noto-cjk-extra fonts-noto-color-emoji
 
+    // adjust
+    sudo locale-gen ko_KR.UTF-8
+    sudo update-locale LANG=ko_KR.UTF-8
+
+    // restart
+    exec zsh
+
+    // check
+    locale // LANG=ko_KR.UTF-8
+    ```
+- Korean type
+    ```
+    // install
+    sudo apt install fcitx-hangul -y
+    ```
+    ```
+    // ~/.zshrc
+    export GTK_IM_MODULE=fcitx
+    export QT_IM_MODULE=fcitx
+    export XMODIFIERS="@im=fcitx"
+    export DefaultIMModule=fcitx
+    ```
 ### Optional
 - net-tools : netstat
     ```
