@@ -81,6 +81,8 @@
     export XMODIFIERS="@im=fcitx"
     export DefaultIMModule=fcitx
     ```
+
+
 ### Optional
 - net-tools : netstat
     ```
@@ -158,6 +160,17 @@
     sudo apt install telnet
     ```
 
+- tmux
+    ```
+    sudo apt update
+    sudo apt install -y tmux
+    ```
+- tpm : tmux plugin manager
+    ```
+    // install
+    git clone git@github.com:tmux-plugins/tpm.git ~/.tmux/plugins/tpm
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    ```
 
 ## Manually installed
 ### Settings
