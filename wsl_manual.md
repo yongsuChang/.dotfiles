@@ -31,6 +31,38 @@
     ```
 - [zsh 설정 덮어쓰기 방법으로 가기](https://github.com/yongsuChang/.dotfiles/tree/main?tab=readme-ov-file#%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0 "Go to zsh")
 
+    - github ssh 등록
+        - 키 생성
+        ```
+        // ssh key 생성
+        cd ~
+        ssh-keygen -t ed25519 -C "your-email@example.com"
+
+        // ssh key 확인
+        cat ~/.ssh/id_ed25519.pub
+        // ssh-ed25519 ~~~~~~ e메일 주소 까지 다 복사해야 함
+        ```
+
+        - Github에 ssh key 등록
+            - GitHub에 로그인 후, Settings → SSH and GPG keys 이동
+            - "New SSH Key" 버튼 클릭
+            - Title에는 WSL을 구분할 수 있는 이름 입력 (예: Gram SSH Key)
+                - Authentication keys 등록
+                - Signing keys 등록
+        ```
+        // 연결 확인
+        ssh -T git@github.com
+        ```
+
+        - git 관련 여러 설정 등록
+        ```
+        git config --global user.name "Your Name"
+        git config --global user.email "your-email@example.com"
+        git config --global core.sshCommand "ssh -i ~/.ssh/id_ed25519"
+        git config --global core.editor vim
+        // editor는 나중에 nvim으로 바꾸는게 좋음
+        ```
+
 ### 2-2. 편의 기능 설치
 
 > 개인적으로는 3-1에 있는 font 및 p10k 추천, neovim 다운 뒤 NvChad 등 설치도 추천
