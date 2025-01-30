@@ -45,6 +45,7 @@ export PATH=$GRADLE_HOME/bin:$PATH
 alias ls='lsd'
 alias ll='lsd -l'
 alias l='lsd -Al'
+alias fd='fdfind'
 alias notpush='git log --branches --not --remotes'
 # 클립보드 오류시 해결
 alias clipboard='{ unset WAYLAND_DISPLAY; unset XDG_RUNTIME_DIR; export XDG_RUNTIME_DIR=/run/user/1000; touch /run/user/1000/wayland-0; chmod 600 /run/user/1000/wayland-0; }'
