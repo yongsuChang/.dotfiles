@@ -27,6 +27,7 @@ sudo apt install zsh
 // zsh 다시 켜기
 exec zsh
 ```
+- [zsh 설정 덮어쓰기 방법으로 가기](https://github.com/yongsuChang/.dotfiles/tree/main?tab=readme-ov-file#%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0 "Go to zsh")
 
 ### 2-2. 편의 기능 설치
 
@@ -191,7 +192,19 @@ sudo update-alternatives --config vi
     ```
 
 ## 4.환경 설정
-### 4-1. (선택)환경 설정 직접 하기
+### 4-1. (선택)환경 설정 덮어쓰기
+- repository clone or fork
+    - 원한다면 fork해서 별도 repository로 나가도 됨(개인 관리 쉬움)
+    ```
+    // HTTPS
+    git clone https://github.com/yongsuChang/.dotfiles.git
+
+    // SSH
+    git clone git@github.com:yongsuChang/.dotfiles.git
+    ```
+    - 이후 [Nvim 설정 그대로 적용하기][Adjust-link] 참조
+
+### 4-2. (선택)환경 설정 직접 하기
 - zsh
     ```
     // 홈 디렉토리에 .zshrc 만들어서 적용
@@ -214,18 +227,6 @@ sudo update-alternatives --config vi
     // 키 매핑 세팅
     vim mappings.lua
     ```
-
-### 4-2. (선택)환경 설정 덮어쓰기
-- repository clone or fork
-    - 원한다면 fork해서 별도 repository로 나가도 됨(개인 관리 쉬움)
-    ```
-    // HTTPS
-    git clone https://github.com/yongsuChang/.dotfiles.git
-
-    // SSH
-    git clone git@github.com:yongsuChang/.dotfiles.git
-    ```
-    - 이후 [Nvim 설정 그대로 적용하기][Adjust-link] 참조
 
 ## 5. (선택)IDE 사용
 ### 5-1. IntelliJ
