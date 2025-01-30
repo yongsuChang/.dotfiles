@@ -9,6 +9,17 @@
 ## zsh 관련 설정
 - `.zshrc` : zsh 설정 파일
 
+### 그대로 사용하기
+    - 이 repository clone
+    - 기존 zsh 관련 설정 파일들을 삭제하고, 이 zshrc를 심볼릭 링크 해야 함
+    ```
+    // 기존 설정 파일 삭제
+    rm -rf ~/.zshrc
+
+    // 심볼릭 링크 생성
+    ln -s ~/{이 repository 상대 위치}/.zshrc ~/.zshrc
+    ```
+
 ### 기본 설정
 - `powerlevel10k` : 터미널 프롬프트 설정
 - `fcitx` : 한글 입력 설정
