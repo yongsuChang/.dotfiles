@@ -131,6 +131,9 @@ sudo update-alternatives --config vi
 - pnpm : faster package installer
     - Link: [pnpm install][pnpm-link]
     - 10.0.0
+    ```
+    npm install -g pnpm@latest-10
+    ```
 
 ***BackEnd***
 - openjdk17 (21은 숫자만 바꾸면 가능)
@@ -274,14 +277,17 @@ sudo update-alternatives --config vi
 
 ## 5. (선택)IDE 사용
 ### 5-1. IntelliJ
-    - IntelliJ linlux용 다운로드(tar.gz 형식)
-        - [IntelliJ linux 다운][Intellij-link]
+- IntelliJ linlux용 다운로드(tar.gz 형식)
+    - [IntelliJ linux 다운][Intellij-link]
+
     ```
     // 접근 쉬운 temp 폴더 생성
     mkdir ~/temp
     chmod 777 ~/temp
 
-    // 압축 풀기
+    // windows 탐색창에 \\wsl$를 입력하면 wsl에 접근 가능
+    // temp로 파일 이동, 압축 풀기
+    cd ~/temp
     tar -xzf ideaIC-*.tar.gz
     // 안 되면   tar -xzf ideaIU-*.tar.gz
 
