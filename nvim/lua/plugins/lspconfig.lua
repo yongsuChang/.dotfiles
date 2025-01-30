@@ -27,10 +27,9 @@ return {
       local project_root = require("jdtls.setup").find_root({ "gradlew", "pom.xml", "build.gradle", ".git" }) or vim.fn.getcwd()
       local workspace_dir = vim.fn.stdpath("cache") .. "/jdtls/workspace/" .. vim.fn.fnamemodify(project_root, ":p:h:t")
       local build_classes = project_root .. "/build/classes/java/main"
-
       lspconfig.jdtls.setup({
         cmd = {
-          "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+          "/usr/lib/jvm/java-21-openjdk-amd64/bin/java",
           "-Declipse.application=org.eclipse.jdt.ls.core.id1",
           "-Dosgi.bundles.defaultStartLevel=4",
           "-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -40,12 +39,12 @@ return {
           "--add-modules=ALL-SYSTEM",
           "--add-opens=java.base/java.util=ALL-UNNAMED",
           "--add-opens=java.base/java.lang=ALL-UNNAMED",
+          "-javaagent:/home/yongsu/.local/share/nvim/mason/packages/jdtls/lombok.jar", -- Lombok 추가
           "-jar", launcher_jar,
           "-configuration", config_path,
           "-data", workspace_dir,
-          "-classpath", build_classes,
         },
-        root_dir = project_root,
+        root_dir = lspconfig.util.root_pattern("pom.xml", "gradlew", "build.gradle", ".git"),
       })
 
       -- TypeScript 설정
