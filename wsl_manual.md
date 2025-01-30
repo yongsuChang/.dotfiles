@@ -117,6 +117,11 @@ sudo update-alternatives --config vi
     - Link: [NodeJs][node-link]
     - node : 22.13.0
     - npm : 10.9.2
+    ```
+    curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
+    sudo -E bash nodesource_setup.sh
+    sudo apt-get install -y nodejs
+    ```
 
 - gcc : compiler
     ```
