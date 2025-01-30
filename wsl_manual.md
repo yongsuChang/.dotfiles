@@ -11,7 +11,8 @@
 
 ## 1. WSL 설치
 1. Microsoft Store에서 Ubuntu 24.x 다운로드
-2. 다운 받은 Ubuntu 24.x 실행
+2. `Windows 기능 켜기/끄기`에서 `Linux용 Windows 하위 시스템` 활성화하기
+3. 다운 받은 Ubuntu 24.x 실행
 
 ## 2. 필요 프로그램 설치
 ### 2-1. 기본 준비
