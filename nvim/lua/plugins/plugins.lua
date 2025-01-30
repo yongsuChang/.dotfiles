@@ -49,8 +49,8 @@ local plugins = {
   },
   -- TailwindCSS Colors 플러그인 (수동으로 설치 함)
   {
-    lazy = false, -- 항상 로드
-    dir = "~/.local/share/nvim/lazy/tailwindcss-colorizer-cmp.nvim",
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+    lazy = false,
     config = function()
             require("tailwindcss-colorizer-cmp").setup({
         color_square_width = 2, -- 색상 미리보기 사각형의 크기 (옵션)
@@ -64,11 +64,11 @@ local plugins = {
     opts = { -- set to setup table
     },
   },
-  -- Markdown 미리보기 플러그인 추가 (수동으로 설치 함)
+  -- Markdown 미리보기 플러그인 추가
   {
+    "iamcco/markdown-preview.nvim",
     lazy = false, -- 항상 로드
-    dir = "~/.local/share/nvim/lazy/markdown-preview.nvim",
-    build = "cd app && pnpm install", -- 설치 후 pnpm 의존성 설치
+    build = "cd app && npm install", -- 설치 후 npm 의존성 설치
     ft = { "markdown" }, -- Markdown 파일에서만 활성화
     config = function()
       vim.g.mkdp_auto_start = 1 -- Markdown 파일 열 때 자동으로 미리보기 시작
