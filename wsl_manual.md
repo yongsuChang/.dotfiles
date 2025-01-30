@@ -12,22 +12,23 @@
 ## 1. WSL 설치
 1. Microsoft Store에서 Ubuntu 24.x 다운로드
 2. `Windows 기능 켜기/끄기`에서 `Linux용 Windows 하위 시스템` 활성화하기
-3. 다운 받은 Ubuntu 24.x 실행
+3. cmd 창에서 ``` wsl.exe --update ``` 실행
+4. 다운 받은 Ubuntu 24.x 실행
 
 ## 2. 필요 프로그램 설치
 ### 2-1. 기본 준비
-```
-// 기본 프로그램들 설치 준비
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install
+    ```
+    // 기본 프로그램들 설치 준비
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get install
 
-// zsh(Custom shell) 설치
-sudo apt install zsh
+    // zsh(Custom shell) 설치
+    sudo apt install zsh
 
-// zsh 다시 켜기
-exec zsh
-```
+    // zsh 다시 켜기
+    exec zsh
+    ```
 - [zsh 설정 덮어쓰기 방법으로 가기](https://github.com/yongsuChang/.dotfiles/tree/main?tab=readme-ov-file#%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0 "Go to zsh")
 
 ### 2-2. 편의 기능 설치
@@ -35,8 +36,13 @@ exec zsh
 > 개인적으로는 3-1에 있는 font 및 p10k 추천, neovim 다운 뒤 NvChad 등 설치도 추천
 
 - neovim : Improved vim
-    - 0.9.5
-    - Link: [neovim install][nvim-link]
+    - 0.11.0-dev
+    ```
+    sudo add-apt-repository ppa:neovim-ppa/unstable -y
+    sudo apt update
+    sudo apt install neovim -y
+    ```
+
 ```
 // install
 sudo add-apt-repository ppa:neovim-ppa/unstable
@@ -184,7 +190,7 @@ sudo update-alternatives --config vi
     gpg --edit-key "your-email@example.com" trust
 
     // init
-    pass init <gpg-id>
+    pass init <gpg-id> // SEC키 사용
     ```
 - telnet : network tool - ssh 연결 테스트 등 가능
     ```
@@ -259,15 +265,20 @@ sudo update-alternatives --config vi
 ## 6. 환경 변수
 - AWS parameterStore 사용 시 환경 변수 설정
     ```
-    // .zshrc에 추가
-    export AWS_ACCESS_KEY_ID=${your-access-key-id}
-    export AWS_SECRET_ACCESS_KEY=${your-secret-access-key}
-    export AWS_REGION=${your-region}
+    AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY
+    AWS_REGION
+    ```
+- DB cloning 할 때 다음 변수 설정
+    ```
+    DB_PRODUCT_PASSWORD
+    DB_PRODUCT_URL
+    DB_TEST_URL
+
     ```
 
 
 [wsl-link]: https://learn.microsoft.com/ko-kr/windows/wsl/install, "Go "
-[nvim-link]: https://github.com/neovim/neovim/blob/master/INSTALL.md#ubuntu "Go neovim"
 [node-link]: https://github.com/nodesource/distributions?tab=readme-ov-file#using-ubuntu-nodejs-22 "Go node"
 [pnpm-link]: https://pnpm.io/ko/installation "Go pnpm"
 [nerdfonts-link]: https://www.nerdfonts.com "Go Nerdfonts"
