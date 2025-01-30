@@ -5,10 +5,12 @@
 - 기존 nvim 관련 설정 파일들을 삭제하고, 이 nvim 폴더를 심볼릭 링크 해야 함
     ```
     // 기존 nvim 폴더가 있을 경우 삭제(기존 설정이 날아가니 주의)
-    rm -rf ~/.config/nvim
+    rm ~/.config/nvim/init.lua
+    rm -rf ~/.config/nvim/lua
 
     // 심볼릭 링크 생성
-    ln -s ~/{이 repository 상대 위치}/nvim ~/.config/nvim
+    ln -s ~/{이 repository 상대 위치}/nvim/init.lua ~/.config/nvim/init.lua
+    ln -s ~/{이 repository 상대 위치}/nvim/lua ~/.config/nvim/lua
     ```
 
 ## 구성
