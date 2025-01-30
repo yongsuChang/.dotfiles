@@ -225,7 +225,7 @@ sudo update-alternatives --config vi
     // SSH
     git clone git@github.com:yongsuChang/.dotfiles.git
     ```
-    - 이후 [README.md][ReadMe-link] 참조
+    - 이후 [Nvim 설정 그대로 적용하기][Adjust-link] 참조
 
 ## 5. (선택)IDE 사용
 ### 5-1. IntelliJ
@@ -271,5 +271,5 @@ sudo update-alternatives --config vi
 [nerdfonts-link]: https://www.nerdfonts.com "Go Nerdfonts"
 [powerlevel10k-link]: https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#installation "Go p10k"
 [nvchad-link]: https://nvchad.com/docs/quickstart/install "Go NvChad"
-[ReadMe-link]: https://github.com/yongsuChang/.dotfiles/blob/main/README.md "Go Read me"
+[Adjust-link]: https://github.com/yongsuChang/.dotfiles/tree/main/nvim#%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0, "Go Adjust"
 [Intellij-link]: https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC "Go IntelliJ download"
