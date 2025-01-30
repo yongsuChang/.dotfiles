@@ -10,6 +10,17 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# 한글 입력
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+export DefaultIMModule=fcitx
+
+# IntelliJ GUI 사용 금지
+export AWT_TOOLKIT=MToolkit
+export _JAVA_AWT_WM_NONREPARENTING=1
+export NO_AT_BRIDGE=1
+
 # pnpm
 export PNPM_HOME="/home/yongsu/.local/share/pnpm"
 case ":$PATH:" in
@@ -23,6 +34,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # NVM 로드
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # bash-completion 로드
 
+# gradle
+export GRADLE_HOME="/usr/share/gradle"
+export PATH=$GRADLE_HOME/bin:$PATH
+
+
 #
 # Personal configs
 #
@@ -32,6 +48,7 @@ alias l='lsd -Al'
 alias notpush='git log --branches --not --remotes'
 # 클립보드 오류시 해결
 alias clipboard='{ unset WAYLAND_DISPLAY; unset XDG_RUNTIME_DIR; export XDG_RUNTIME_DIR=/run/user/1000; touch /run/user/1000/wayland-0; chmod 600 /run/user/1000/wayland-0; }'
+alias sii='nohup /opt/idea/bin/idea > /dev/null 2>&1 & disown'   # IntelliJ 실행 (백그라운드 실행)
 
 # 배포 관련
 deploy() {
