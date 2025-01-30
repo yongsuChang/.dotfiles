@@ -23,9 +23,6 @@
     // install
     sudo apt update
     sudo apt install lsd
-
-    // set command `ls`
-    sudo update-alternatives --install /usr/bin/ls ls /usr/bin/lsd 10
     ```
 
 - fd-find : file name search
@@ -33,10 +30,6 @@
     // install
     sudo apt update
     sudo apt install fd-find
-
-    // set command `fd` for fd-find
-    mkdir -p ~/.local/bin
-    ln -s $(which fdfind) ~/.local/bin/fd
     ```
 
 - openjdk17

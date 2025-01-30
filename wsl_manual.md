@@ -95,20 +95,11 @@ sudo update-alternatives --config vi
 - lsd : Prettier ls
     ```
     sudo apt install lsd
-
-    // set command `ls`
-    sudo update-alternatives --install /usr/bin/ls ls /usr/bin/lsd 10
     ```
 
 - fd-find : file name search
     ```
     sudo apt install fd-find
-    ```
-- set command `fd` for fd-find
-    ```
-    // set command `fd` for fd-find
-    mkdir -p ~/.local/bin
-    ln -s $(which fdfind) ~/.local/bin/fd
     ```
 
 ### 2-3. 작업 필수 프로그램
