@@ -49,6 +49,11 @@
     sudo apt update
     sudo apt install maven
     ```
+- gradle
+    ```
+    sudo apt update && sudo apt install -y gradle
+    ```
+
 - noto-san-cjk
     ```
     // install
