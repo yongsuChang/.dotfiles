@@ -54,6 +54,7 @@ alias clipboard='{ unset WAYLAND_DISPLAY; unset XDG_RUNTIME_DIR; export XDG_RUNT
 alias sii='nohup /opt/idea/bin/idea > /dev/null 2>&1 & disown'   # IntelliJ 실행 (백그라운드 실행)
 alias jl='jira issue list'  # Jira CLI 명령어 줄임말
 alias jlm='jira issue list -q "assignee = currentUser()"'  # Jira CLI 내가 담당한 이슈 목록
+alias morning='~/.start_work.sh'  # 아침 출근 스크립트
 
 # 배포 관련
 deploy() {
