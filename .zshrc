@@ -55,6 +55,7 @@ alias sii='nohup /opt/idea/bin/idea > /dev/null 2>&1 & disown'   # IntelliJ 실�
 alias jl='jira issue list'  # Jira CLI 명령어 줄임말
 alias jlm='jira issue list -q "assignee = currentUser()"'  # Jira CLI 내가 담당한 이슈 목록
 alias morning='~/.start_work.sh'  # 아침 출근 스크립트
+alias gpull='(cd ~/git/.dotfiles && git pull) && (cd ~/git/life && git pull)'  # dotfiles와 life 프로젝트 pull
 
 # 배포 관련
 deploy() {
