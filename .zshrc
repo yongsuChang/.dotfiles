@@ -73,8 +73,12 @@ deploy() {
       selectedProject="report-deploy.yml"
       projectDir="~/git/land-contract-back/contract-report"
       ;;
+    scheduled)
+      selectedProject="scheduled-deploy.yml"
+      projectDir="~/git/land-contract-back/contract-scheduled"
+      ;;
     *)
-      echo "❌ Error: Invalid project '$1'. Allowed: admin, report"
+      echo "❌ Error: Invalid project '$1'. Allowed: admin, report, scheduled"
       return 1
       ;;
   esac
