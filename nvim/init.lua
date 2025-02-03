@@ -16,6 +16,9 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+-- netrw무시, vim-tmux-navigator 사용
+vim.g.tmux_navigator_disable_netrw_workaround = 1
+
 local lazy_config = require "configs.lazy"
 
 -- load plugins
