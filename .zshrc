@@ -38,6 +38,8 @@ export NVM_DIR="$HOME/.nvm"
 export GRADLE_HOME="/usr/share/gradle"
 export PATH=$GRADLE_HOME/bin:$PATH
 
+# Jira
+export JIRA_API_TOKEN="$(pass show JIRA_API_TOKEN)"
 
 #
 # Personal configs
@@ -50,6 +52,8 @@ alias notpush='git log --branches --not --remotes'
 # 클립보드 오류시 해결
 alias clipboard='{ unset WAYLAND_DISPLAY; unset XDG_RUNTIME_DIR; export XDG_RUNTIME_DIR=/run/user/1000; touch /run/user/1000/wayland-0; chmod 600 /run/user/1000/wayland-0; }'
 alias sii='nohup /opt/idea/bin/idea > /dev/null 2>&1 & disown'   # IntelliJ 실행 (백그라운드 실행)
+alias jl='jira issue list'  # Jira CLI 명령어 줄임말
+alias jlm='jira issue list -q "assignee = currentUser()"'  # Jira CLI 내가 담당한 이슈 목록
 
 # 배포 관련
 deploy() {
@@ -183,8 +187,7 @@ dbclone() {
     echo ""
     echo "${SUCCESS_ICON} 데이터베이스 클론 작업이 성공적으로 완료되었습니다!"
 }
-# zshrc에 alias 추가
-alias deploy="deploy"
-alias dbclone="dbclone"
 
 export TERM=xterm-256color
+export PATH=$PATH:$HOME/go/bin
+export EDITOR=nvim
