@@ -28,6 +28,9 @@
 
     // zsh 다시 켜기
     exec zsh
+
+    // zsh를 기본 쉘로 변경
+    chsh -s $(which zsh)
     ```
 - <a href="https://github.com/yongsuChang/.dotfiles/tree/main?tab=readme-ov-file#%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0" target="_blank">zsh 설정 덮어쓰기 방법으로 가기</a>
     - github ssh 등록
