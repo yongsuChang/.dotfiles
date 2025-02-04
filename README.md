@@ -6,6 +6,7 @@
 ## 설정 덮어쓰기 방법
 - [zsh 설정 덮어쓰기 방법으로 가기](https://github.com/yongsuChang/.dotfiles/tree/main?tab=readme-ov-file#%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0 "Go to zsh")
 - [NeoVim 설정 덮어쓰기 방법으로 가기](https://github.com/yongsuChang/.dotfiles/tree/main/nvim "Go to nvim")
+- <a href="https://github.com/yongsuChang/.dotfiles/blob/main/install.md" target="_blank">추가 기능 설치 방법으로 가기</a>
 
 ## zsh 관련 설정
 - `.zshrc` : zsh 설정 파일
