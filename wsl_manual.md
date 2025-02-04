@@ -2,7 +2,7 @@
 ## 0. WSL이란?
 - Windows Subsystem for Linux
 - Windows에 기본으로 설치할 수 있는 linux 환경
-- [WSL 설명][wsl-link]
+- <a href="https://learn.microsoft.com/ko-kr/windows/wsl/install" target="_blank">WSL 설명</a>
 
 ### 0-1. 사용 이유?
 - 개발 세팅 간편화
@@ -29,8 +29,7 @@
     // zsh 다시 켜기
     exec zsh
     ```
-- [zsh 설정 덮어쓰기 방법으로 가기](https://github.com/yongsuChang/.dotfiles/tree/main?tab=readme-ov-file#%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0 "Go to zsh")
-
+- <a href="https://github.com/yongsuChang/.dotfiles/tree/main?tab=readme-ov-file#%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0" target="_blank">zsh 설정 덮어쓰기 방법으로 가기</a>
     - github ssh 등록
         - 키 생성
         ```
@@ -105,13 +104,14 @@ sudo update-alternatives --config vi
 ### 2-3. 작업 필수 프로그램
 ***FrontEnd***
 - NodeJS : 
-    - Link: [NodeJs][node-link]
-    - node : 22.13.0
-    - npm : 10.9.2
     ```
-    curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
-    sudo -E bash nodesource_setup.sh
-    sudo apt-get install -y nodejs
+    // nvm 설치 및 버젼 확인
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+    nvm --version
+    ```
+    - node, npm 설치
+    ```
+    nvm install --lts
     ```
 
 - gcc : compiler
@@ -313,7 +313,7 @@ sudo update-alternatives --config vi
 
 
 [wsl-link]: https://learn.microsoft.com/ko-kr/windows/wsl/install, "Go "
-[node-link]: https://github.com/nodesource/distributions?tab=readme-ov-file#using-ubuntu-nodejs-22 "Go node"
+[node-link]:  "Go node"
 [pnpm-link]: https://pnpm.io/ko/installation "Go pnpm"
 [nerdfonts-link]: https://www.nerdfonts.com "Go Nerdfonts"
 [powerlevel10k-link]: https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#installation "Go p10k"
