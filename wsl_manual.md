@@ -155,6 +155,14 @@ sudo update-alternatives --config vi
     # gradle 버전 확인
     gradle -v
     ```
+    - gradle build를 위한 세팅
+    ```
+    # 새로운 gradle로 프로젝트 빌드
+    ./gradlew clean build
+
+    # gradle 데몬 실행
+    ./gradlew bootRun
+    ```
 
 ## 3. Optional
 ### 3-1. 커스터마이징 기능

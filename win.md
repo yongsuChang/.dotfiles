@@ -69,6 +69,9 @@
     ```
     # 새로운 gradle로 프로젝트 빌드
     ./gradlew clean build
+
+    # gradle 데몬 실행
+    ./gradlew bootRun
     ```
 
 - noto-san-cjk
