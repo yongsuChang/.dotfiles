@@ -46,30 +46,37 @@ export AWS_REGION="$(pass show AWS_REGION)"
 # Jira
 export JIRA_API_TOKEN="$(pass show JIRA_API_TOKEN)"
 
-#
-# Personal configs
-#
+
+# Shortcuts
+## fd-find
+alias fd='fdfind'
+## lsd
 alias ls='lsd'
 alias ll='lsd -l'
 alias l='lsd -Al'
-alias fd='fdfind'
+
+## git
 alias notpush='git log --branches --not --remotes'
-# 클립보드 오류시 해결
-alias clipboard='{ unset WAYLAND_DISPLAY; unset XDG_RUNTIME_DIR; export XDG_RUNTIME_DIR=/run/user/1000; touch /run/user/1000/wayland-0; chmod 600 /run/user/1000/wayland-0; }'
-alias sii='nohup /opt/idea/bin/idea > /dev/null 2>&1 & disown'   # IntelliJ 실행 (백그라운드 실행)
+alias lg='lazygit'
+alias gpull='(cd ~/git/.dotfiles && git pull) && (cd ~/git/life && git pull)'  # dotfiles와 life 프로젝트 pull
+
+## jira
 alias jl='jira issue list'  # Jira CLI 명령어 줄임말
 alias jlm='jira issue list -q "assignee = currentUser()"'  # Jira CLI 내가 담당한 이슈 목록
 alias jlmd='jira issue list -q "assignee = currentUser() AND status != Done"'  # Jira CLI 내가 담당한 진행 중인 이슈 목록
 alias jlp='jira issue list -q "assignee = currentUser() AND status != done AND sprint not in (10)"'  # Jira CLI 내가 담당한 진행 중인 이슈 목록
-alias morning='~/.start_work.sh'  # 아침 출근 스크립트
-alias gpull='(cd ~/git/.dotfiles && git pull) && (cd ~/git/life && git pull)'  # dotfiles와 life 프로젝트 pull
 
 # 프로젝트 빌드 및 실행
+alias sii='nohup /opt/idea/bin/idea > /dev/null 2>&1 & disown'   # IntelliJ 실행 (백그라운드 실행)
 alias bib='cd ~/git/invoice-care-back && ./gradlew build --refresh-dependencies'
 alias blb='cd ~/git/land-contract-back&& ./gradlew build --refresh-dependencies'
 alias rib='cd ~/git/invoice-care-back && ./gradlew bootRun'
 alias rlb='cd ~/git/land-contract-back && ./gradlew :contract-admin:bootRun'
 
+## utility
+### 클립보드 오류시 해결
+alias clipboard='{ unset WAYLAND_DISPLAY; unset XDG_RUNTIME_DIR; export XDG_RUNTIME_DIR=/run/user/1000; touch /run/user/1000/wayland-0; chmod 600 /run/user/1000/wayland-0; }'
+alias morning='~/.start_work.sh'  # 아침 출근 스크립트
 
 # 배포 관련
 deploy() {
