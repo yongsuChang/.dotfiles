@@ -10,4 +10,5 @@ return {
       require("gitsigns").setup(opts)
     end,
   },
+  },
 }

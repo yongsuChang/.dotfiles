@@ -19,6 +19,16 @@ return {
     end
   },
 
+  -- Copilot 공식 플러그인
+  {
+    "github/copilot.vim",
+    lazy = false, -- 항상 로드되도록 설정
+    config = function()
+      -- 추가 설정이 필요하면 여기서 처리
+      -- vim.g.copilot_no_tab_map = true
+      -- vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+    end,
+  },
 --  -- copilot-cmp: Copilot을 nvim-cmp 소스처럼 쓰기
 --  {
 --    "zbirenbaum/copilot-cmp",
