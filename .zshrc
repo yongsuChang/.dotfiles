@@ -38,6 +38,11 @@ export NVM_DIR="$HOME/.nvm"
 export GRADLE_HOME="/usr/share/gradle"
 export PATH=$GRADLE_HOME/bin:$PATH
 
+# parameter store
+export AWS_ACCESS_KEY_ID="$(pass show AWS_ACCESS_KEY_ID)"
+export AWS_SECRET_ACCESS_KEY="$(pass show AWS_SECRET_ACCESS_KEY)"
+export AWS_REGION="$(pass show AWS_REGION)"
+
 # Jira
 export JIRA_API_TOKEN="$(pass show JIRA_API_TOKEN)"
 
@@ -54,8 +59,17 @@ alias clipboard='{ unset WAYLAND_DISPLAY; unset XDG_RUNTIME_DIR; export XDG_RUNT
 alias sii='nohup /opt/idea/bin/idea > /dev/null 2>&1 & disown'   # IntelliJ 실행 (백그라운드 실행)
 alias jl='jira issue list'  # Jira CLI 명령어 줄임말
 alias jlm='jira issue list -q "assignee = currentUser()"'  # Jira CLI 내가 담당한 이슈 목록
+alias jlmd='jira issue list -q "assignee = currentUser() AND status != Done"'  # Jira CLI 내가 담당한 진행 중인 이슈 목록
+alias jlp='jira issue list -q "assignee = currentUser() AND status != done AND sprint not in (10)"'  # Jira CLI 내가 담당한 진행 중인 이슈 목록
 alias morning='~/.start_work.sh'  # 아침 출근 스크립트
 alias gpull='(cd ~/git/.dotfiles && git pull) && (cd ~/git/life && git pull)'  # dotfiles와 life 프로젝트 pull
+
+# 프로젝트 빌드 및 실행
+alias bib='cd ~/git/invoice-care-back && ./gradlew build --refresh-dependencies'
+alias blb='cd ~/git/land-contract-back&& ./gradlew build --refresh-dependencies'
+alias rib='cd ~/git/invoice-care-back && ./gradlew bootRun'
+alias rlb='cd ~/git/land-contract-back && ./gradlew :contract-admin:bootRun'
+
 
 # 배포 관련
 deploy() {
@@ -197,3 +211,7 @@ dbclone() {
 export TERM=xterm-256color
 export PATH=$PATH:$HOME/go/bin
 export EDITOR=nvim
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
