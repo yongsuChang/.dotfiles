@@ -70,7 +70,6 @@
         // Default board
         Progress // 다른 것일 수도, 한글은 안됨
         ```
-
 3. Tmux
 - 설치
     - tmux
@@ -165,4 +164,37 @@
                     }
                     ```
 
-        
+4. LazyGit : Git GUI
+    - install : 최신 버젼 다운로드, 설치
+        ```
+        LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+        curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+        tar xf lazygit.tar.gz lazygit
+        sudo install lazygit -D -t /usr/local/bin/
+
+        ```
+    - version check
+        ```
+        lazygit --version
+        ```
+    - Command 등록
+        - ~/.config/nvim/lua/plugins/plugins.lua 등 plugin 관련 lua 파일에 추가
+        ```
+          {
+            "kdheepak/lazygit.nvim", -- lazygit 플러그인
+            cmd = "LazyGit",         -- :LazyGit 커맨드 호출 시에만 로드합니다.
+            config = function()
+              -- lazygit 설정 (옵션이 있다면 추가)
+              -- require("lazygit").setup({
+                -- 예: border = "rounded",
+                -- 필요한 옵션들을 여기에 추가할 수 있습니다.
+              -- })
+            end,
+          },
+        ```
+    - Mapping 등록
+        - ~/.config/nvim/lua/mappings.lua 등 mapping 관련 lua 파일에 추가
+        ```
+        -- <leader>lg로 LazyGit 실행
+        map("n", "<leader>lg", ":LazyGit<CR>", { desc = "Start LazyGit", noremap = true, silent = true })
+        ```

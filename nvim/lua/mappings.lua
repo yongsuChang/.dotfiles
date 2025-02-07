@@ -65,3 +65,6 @@ map("n", "<F2>", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
 map("n", "<F3>", ":NvimTreeFocus<CR>", { desc = "Focus NvimTree" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
+-- <leader>lg로 LazyGit 실행
+map("n", "<leader>lg", ":LazyGit<CR>", { desc = "Start LazyGit", noremap = true, silent = true })
+
