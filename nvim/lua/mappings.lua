@@ -14,6 +14,9 @@ map("n", "<S-F>", ":Telescope live_grep<CR>", { desc = "Search Text" }) -- 텍�
 map("n", "<S-R>", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Find and Replace" })
 map("n", "<S-R>", ":lua require('spectre').open()<CR>", { noremap = true, silent = true, desc = "Find and Replace" })
 
+-- <leader> ca로 LSP Code Action 실행
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
+
 ---- Theme switcher
 map("n", "<C-t>", function()
   require("nvchad.themes").open {style = "compact"}
@@ -61,3 +64,4 @@ map("n", "<F2>", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
 -- F3: NvimTree 새 창 열기
 map("n", "<F3>", ":NvimTreeFocus<CR>", { desc = "Focus NvimTree" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
