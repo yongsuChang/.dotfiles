@@ -142,7 +142,18 @@ sudo update-alternatives --config vi
     ```
 - gradle
     ```
-    sudo apt update && sudo apt install -y gradle
+    # apt install 하면 구버젼이 다운 됨
+    curl -s "https://get.sdkman.io" | bash
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+    # 다운 받을 수 있는 gradle 버전 확인
+    sdk list gradle
+
+    # gradle 설치
+    sdk install gradle 8.12.1
+
+    # gradle 버전 확인
+    gradle -v
     ```
 
 ## 3. Optional

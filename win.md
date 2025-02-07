@@ -32,6 +32,13 @@
     sudo apt install fd-find
     ```
 
+- zip unzip : zip file manager
+    ```
+    // install
+    sudo apt update
+    sudo apt install zip unzip
+    ```
+
 - openjdk17
     ```
     sudo apt update
@@ -44,7 +51,24 @@
     ```
 - gradle
     ```
-    sudo apt update && sudo apt install -y gradle
+    # install zip unzip
+    sudo apt update
+    sudo apt install zip unzip
+
+    # apt install 하면 구버젼이 다운 됨
+    curl -s "https://get.sdkman.io" | bash
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+    # 다운 받을 수 있는 gradle 버전 확인
+    sdk list gradle
+
+    # gradle 설치
+    sdk install gradle 8.12.1
+    ```
+    - gradle build를 위한 세팅
+    ```
+    # 새로운 gradle로 프로젝트 빌드
+    ./gradlew clean build
     ```
 
 - noto-san-cjk
