@@ -1,4 +1,5 @@
 # 1. Copilot
+- Code helping AI
     - nvim에 plugin으로 copilot 설치
         ```
         // ex) ~/.config/nvim/plugins/plugins.lua
@@ -30,6 +31,7 @@
           AddKeysToAgent yes
         ```
 # 2. Jira-Cli
+- Jira Client for Terminal
     - <a href="https://github.com/ankitpokhrel/jira-cli?tab=readme-ov-file" target="_blank"> Jira-cli 사이트 </a>
     - Go 설치
         ```
@@ -71,6 +73,7 @@
         Progress // 다른 것일 수도, 한글은 안됨
         ```
 # 3. Tmux
+- Terminal Multiplexer
     - 설치
         - tmux
             ```
@@ -164,7 +167,8 @@
                         }
                         ```
 
-# 4. LazyGit : Git GUI
+# 4. LazyGit
+- Git GUI
     - install : 최신 버젼 다운로드, 설치
         ```
         LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
