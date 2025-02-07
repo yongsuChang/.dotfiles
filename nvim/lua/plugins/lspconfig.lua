@@ -10,6 +10,8 @@ return {
       local mason_lspconfig = require("mason-lspconfig")
       local root_pattern = require("lspconfig").util.root_pattern
 
+      local excluded_filetypes = { "c", "cpp", "python" }  -- 제외할 파일 타입 목록
+
       -- Mason 설정
       mason_lspconfig.setup({
         ensure_installed = {
@@ -67,6 +69,35 @@ return {
           },
         },
         filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact" },
+      })
+      lspconfig.ltex.setup({
+        -- ltex‑ls를 적용할 파일 타입 목록을 가능한 한 넓게 지정합니다.
+        -- 여기서는 예시로 흔히 사용하는 여러 텍스트 및 코드 관련 파일 타입을 나열했습니다.
+        filetypes = {
+          "plaintext", "markdown", "tex", "gitcommit", "org",
+          "java", "javascript", "javascriptreact", "typescript", "typescriptreact",
+          "html", "css", "lua", "vim", "sh", "json", "yaml"
+        },
+        -- on_attach에서 제외 파일 타입이면 클라이언트를 중지합니다.
+        on_attach = function(client, bufnr)
+          local ft = vim.bo.filetype
+          for _, excluded in ipairs(excluded_filetypes) do
+            if ft == excluded then
+              -- 해당 버퍼에서는 ltex‑ls를 중지시켜, 검사하지 않도록 함
+              client.stop()
+              return
+            end
+          end
+        end,
+        settings = {
+          ltex = {
+            language = "en-US",
+            dictionary = {
+              ["en-US"] = {},
+            },
+            -- 필요에 따라 추가 설정 (예: disabledRules, additionalRules 등) 적용 가능
+          },
+        },
       })
     end,
   },

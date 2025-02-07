@@ -8,6 +8,10 @@ local M = {}
 -- vim 독립 클립보드 사용
 vim.opt.clipboard = "unnamedplus"
 
+-- 맞춤법 검사
+vim.opt.spell = true
+vim.opt.spelllang = { "en_us" }
+
 M.header = {
   "Welcome to NVChad!",
   "Make your Neovim powerful",
