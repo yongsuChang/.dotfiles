@@ -10,6 +10,34 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Basic configs
+# History
+setopt EXTENDED_HISTORY HIST_IGNORE_ALL_DUPS HIST_LEX_WORDS HIST_REDUCE_BLANKS SHARE_HISTORY
+HISTSIZE=9000000
+SAVEHIST="${HISTSIZE}"
+HISTFILE=~/.zsh_history
+
+#
+# Load local configs
+#
+if [[ -f ~/.zshrc.local ]]; then
+  source ~/.zshrc.local
+fi
+
+setopt AUTO_CD
+zstyle ':completion:*' menu select
+zstyle ':completion:*' use-cache on
+# Substring completion
+zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+#
+# zsh-substring-completion
+#
+setopt complete_in_word
+setopt always_to_end
+WORDCHARS=''
+zmodload -i zsh/complist
+
 # 한글 입력
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
@@ -218,7 +246,49 @@ dbclone() {
 export TERM=xterm-256color
 export PATH=$PATH:$HOME/go/bin
 export EDITOR=nvim
+bindkey -e # Use emacs keybinding yet EDITOR is nvim
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+#
+# zinit
+#
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+zinit light simnalamburt/cgitc
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-completions
+
+# zsh-autosuggestions
+ZSH_AUTOSUGGEST_USE_ASYNC=1
+if is-at-least 5.3; then
+  zinit ice silent wait'1' atload'_zsh_autosuggest_start'
+fi
+zinit light zsh-users/zsh-autosuggestions
+
+# zsh-expand-all
+ZSH_EXPAND_ALL_DISABLE=word
+zinit light simnalamburt/zsh-expand-all
+
+# fzf
+zi ice from"gh-r" as"program"
+zi light junegunn/fzf
+source <(fzf --zsh)
+
+# zsh-history-substring-search
+zinit light zsh-users/zsh-history-substring-search
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
