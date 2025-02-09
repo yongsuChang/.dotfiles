@@ -191,7 +191,11 @@
     git clone git@github.com:tmux-plugins/tpm.git ~/.tmux/plugins/tpm
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     ```
-
+- jq : json parser
+    ```
+    sudo apt update
+    sudo apt install jq
+    ```
 ## Manually installed
 ### Settings
 - fonts : CaskaydiaCove Nerd font
