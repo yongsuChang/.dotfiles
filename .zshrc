@@ -96,10 +96,10 @@ alias jlp='jira issue list -q "assignee = currentUser() AND status != done AND s
 
 # 프로젝트 빌드 및 실행
 alias sii='nohup /opt/idea/bin/idea > /dev/null 2>&1 & disown'   # IntelliJ 실행 (백그라운드 실행)
-alias bib='cd ~/git/invoice-care-back && ./gradlew build --refresh-dependencies'
-alias blb='cd ~/git/land-contract-back&& ./gradlew build --refresh-dependencies'
-alias rib='cd ~/git/invoice-care-back && ./gradlew bootRun'
-alias rlb='cd ~/git/land-contract-back && ./gradlew :contract-admin:bootRun'
+alias bib='cd ~/git/invoice-care-back && ./gradlew build --refresh-dependencies --no-daemon'
+alias blb='cd ~/git/land-contract-back&& ./gradlew build --refresh-dependencies --no-daemon'
+alias rib='cd ~/git/invoice-care-back && ./gradlew bootRun --no-daemon'
+alias rlb='cd ~/git/land-contract-back && ./gradlew :contract-admin:bootRun --no-daemon'
 
 ## utility
 ### 클립보드 오류시 해결
