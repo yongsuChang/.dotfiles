@@ -298,3 +298,11 @@ HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 
 autoload -Uz compinit
 compinit
+
+
+#
+# Load local configs
+#
+if [[ -f ~/.zshrc.local ]]; then
+  source ~/.zshrc.local
+fi
