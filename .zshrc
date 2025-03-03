@@ -51,6 +51,9 @@ export GRADLE_HOME="/usr/share/gradle"
 export PATH=$GRADLE_HOME/bin:$PATH
 
 # Shortcuts
+alias v=nvim
+alias vi=nvim
+alias vim=nvim
 ## fd-find
 alias fd='fdfind'
 ## lsd
