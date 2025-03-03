@@ -1,0 +1,33 @@
+Host Bastion
+  HostName 3.39.131.47
+  User ec2-user
+  Port 34185
+  IdentityFile /Users/chang-yongsu/.ssh/buildingcare-key.pem
+Host Buildingcare-Staging
+  HostName 3.34.20.235
+  User ubuntu
+  Port 34185
+  IdentityFile /Users/chang-yongsu/.ssh/test-server.pem
+Host Buildingcare-Test
+  HostName 3.39.71.114
+  User ubuntu
+  Port 34185
+  IdentityFile /Users/chang-yongsu/.ssh/test-server.pem
+Host Worktool
+  HostName 52.79.36.47
+  User ubuntu
+  Port 34185
+  IdentityFile /Users/chang-yongsu/.ssh/test-server.pem
+Host Land
+  HostName 3.34.108.63
+  User ubuntu
+  Port 34185
+  IdentityFile /Users/chang-yongsu/.ssh/land.pem
+
+Host *
+	IdentityAgent /Users/chang-yongsu/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+
+# config.local이 존재하면 Include 실행
+Match exec test -f ~/.ssh/config.local
+  Include ~/.ssh/config.local
+
