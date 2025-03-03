@@ -46,19 +46,6 @@ export AWT_TOOLKIT=MToolkit
 export _JAVA_AWT_WM_NONREPARENTING=1
 export NO_AT_BRIDGE=1
 
-# pnpm
-export PNPM_HOME="/home/yongsu/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # NVM 로드
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # bash-completion 로드
-
 # gradle
 export GRADLE_HOME="/usr/share/gradle"
 export PATH=$GRADLE_HOME/bin:$PATH
