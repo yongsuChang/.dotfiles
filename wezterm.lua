@@ -52,6 +52,7 @@ if w.target_triple == 'aarch64-apple-darwin' or w.target == 'x86_64-apple-darwin
   c.native_macos_fullscreen_mode = true
   c.window_decorations = 'MACOS_FORCE_ENABLE_SHADOW|RESIZE'
 
+  table.insert(c.keys, {mods = 'CMD', key = 'w', action = a.CloseCurrentPane { confirm = false }})
   table.insert(c.keys, {mods = 'CMD', key = 'm', action = a.SplitVertical})
   table.insert(c.keys, {mods = 'CMD', key = 'l', action = a.SplitHorizontal})
 elseif w.target_triple == 'x86_64-pc-windows-msvc' then
