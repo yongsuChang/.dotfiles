@@ -41,12 +41,6 @@ setopt always_to_end
 WORDCHARS=''
 zmodload -i zsh/complist
 
-# 한글 입력
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
-export DefaultIMModule=fcitx
-
 # IntelliJ GUI 사용 금지
 export AWT_TOOLKIT=MToolkit
 export _JAVA_AWT_WM_NONREPARENTING=1
