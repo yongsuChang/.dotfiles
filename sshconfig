@@ -1,3 +1,10 @@
+Host github.com
+  HostName ssh.github.com
+  Port 443
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+  AddKeysToAgent yes
+
 Host Bastion
   HostName 3.39.131.47
   User ec2-user
@@ -26,8 +33,4 @@ Host Land
 
 Host *
 	IdentityAgent /Users/chang-yongsu/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
-
-# config.local이 존재하면 Include 실행
-Match exec test -f ~/.ssh/config.local
-  Include ~/.ssh/config.local
 
