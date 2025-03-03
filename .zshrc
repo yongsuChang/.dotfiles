@@ -50,15 +50,6 @@ export NO_AT_BRIDGE=1
 export GRADLE_HOME="/usr/share/gradle"
 export PATH=$GRADLE_HOME/bin:$PATH
 
-# parameter store
-export AWS_ACCESS_KEY_ID="$(pass show AWS_ACCESS_KEY_ID)"
-export AWS_SECRET_ACCESS_KEY="$(pass show AWS_SECRET_ACCESS_KEY)"
-export AWS_REGION="$(pass show AWS_REGION)"
-
-# Jira
-export JIRA_API_TOKEN="$(pass show JIRA_API_TOKEN)"
-
-
 # Shortcuts
 ## fd-find
 alias fd='fdfind'
