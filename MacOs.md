@@ -15,3 +15,4 @@ ripgrep
 tmux
 secretive
 windsurf
+vscode-insiders
