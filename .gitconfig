@@ -14,3 +14,5 @@
   format = ssh
 [merge]
   conflictstyle = zdiff3
+[pull]
+	rebase = true
