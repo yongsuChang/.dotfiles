@@ -4,11 +4,11 @@
 - 각 개발자의 효율성을 극대화 시키기
     - 사람의 Resource는 한정되어있음,
         - 효율적으로 사람이 할 수 있는 일만 하더라도 바쁨
-            - 판단을 내리는 것에 업무가 집중 되어야 함
+            - **판단을 내리는 것에 업무가 집중 되어야 함**
         - 기계가 할 수 있는 것들은 기계에게 맡겨야 함
             - 반복적인 일들은 기계에게 맡길 수 있음
                 - 제대로 된 환경 설정하여 check, test, 배포 등 자동화 가능
-            - 생산성 있는 일들도 기계에게 맡기기 가능해 짐
+            - **생산성 있는 일들도 기계에게 맡기기 가능해 짐**
                 - AI model들의 성능이 많이 올라와서 이제 맡기기 가능
 
 
@@ -49,7 +49,7 @@
         brew install --cask visual-studio-code@insiders
         ```
 ## Claude Code
-[Anthropic - Claude Code](https://claude.anthropic.com/)
+[Anthropic - Claude Code](https://console.anthropic.com/)
 - Anthropic사에서 만든 Agent coding tool
     - 현재는 terminal내에서 CLI 프로그램으로 동작
         - 프로젝트 내부 전체 스캐닝 하면서 작업도 가능
