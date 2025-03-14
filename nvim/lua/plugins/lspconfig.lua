@@ -21,17 +21,33 @@ return {
         },
       })
 
-      -- Java 설정
+      -- OS별 설정
       local mason_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
+      local os_name
+      local java_path
+
+      if vim.fn.has("mac") == 1 then
+        os_name = "mac"
+        java_path = "/opt/homebrew/Cellar/openjdk@21/21.0.6/bin/java"
+      elseif vim.fn.has("unix") == 1 then
+        os_name = "linux"
+        java_path = "/usr/lib/jvm/java-21-openjdk-amd64/bin/java"
+      else
+        os_name = "win"
+        java_path = "C:/Program Files/Java/jdk-21/bin/java.exe"  -- Windows 환경에 맞게 변경 필요
+      end
+
+      local config_path = mason_path .. "/config_" .. os_name
+
       local jar_pattern = mason_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"
       local launcher_jar = vim.fn.glob(jar_pattern)
-      local config_path = mason_path .. "/config_linux"
       local project_root = require("jdtls.setup").find_root({ "gradlew", "pom.xml", "build.gradle", ".git" }) or vim.fn.getcwd()
       local workspace_dir = vim.fn.stdpath("cache") .. "/jdtls/workspace/" .. vim.fn.fnamemodify(project_root, ":p:h:t")
       local build_classes = project_root .. "/build/classes/java/main"
+
       lspconfig.jdtls.setup({
         cmd = {
-          "/usr/lib/jvm/java-21-openjdk-amd64/bin/java",
+          java_path,
           "-Declipse.application=org.eclipse.jdt.ls.core.id1",
           "-Dosgi.bundles.defaultStartLevel=4",
           "-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -41,7 +57,7 @@ return {
           "--add-modules=ALL-SYSTEM",
           "--add-opens=java.base/java.util=ALL-UNNAMED",
           "--add-opens=java.base/java.lang=ALL-UNNAMED",
-          "-javaagent:/home/yongsu/.local/share/nvim/mason/packages/jdtls/lombok.jar", -- Lombok 추가
+          "-javaagent:" .. vim.fn.expand("~/.local/share/nvim/mason/packages/jdtls/lombok.jar"),
           "-jar", launcher_jar,
           "-configuration", config_path,
           "-data", workspace_dir,
@@ -52,7 +68,6 @@ return {
       -- TypeScript 설정
       lspconfig.ts_ls.setup({
         on_attach = function(client, bufnr)
-          -- TypeScript LSP의 기본 포맷터 비활성화 (null-ls 등 외부 포맷터를 사용하는 경우)
           client.server_capabilities.documentFormattingProvider = false
           client.server_capabilities.documentRangeFormattingProvider = false
         end,
