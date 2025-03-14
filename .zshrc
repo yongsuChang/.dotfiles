@@ -80,9 +80,9 @@ alias rib='cd ~/git/invoice-care-back && ./gradlew bootRun --no-daemon'
 alias rlb='cd ~/git/land-contract-back && ./gradlew :contract-admin:bootRun --no-daemon'
 
 ## utility
-### 클립보드 오류시 해결
-alias clipboard='{ unset WAYLAND_DISPLAY; unset XDG_RUNTIME_DIR; export XDG_RUNTIME_DIR=/run/user/1000; touch /run/user/1000/wayland-0; chmod 600 /run/user/1000/wayland-0; }'
+alias clipboard='{ unset WAYLAND_DISPLAY; unset XDG_RUNTIME_DIR; export XDG_RUNTIME_DIR=/run/user/1000; touch /run/user/1000/wayland-0; chmod 600 /run/user/1000/wayland-0; }' # 클립보드 오류시 해결
 alias morning='~/.start_work.sh'  # 아침 출근 스크립트
+alias claude='pnpx @anthropic-ai/claude-code' # Claude Code 실행
 
 # 공통 함수 불러오기
 source ~/.zsh_functions/common.zsh
