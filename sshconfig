@@ -20,6 +20,11 @@ Host Buildingcare-Test
   User ubuntu
   Port 34185
   IdentityFile /Users/chang-yongsu/.ssh/test-server.pem
+Host Space-Test
+  HostName 3.35.252.54
+  User ubuntu
+  Port 34185
+  IdentityFile /Users/chang-yongsu/.ssh/test-server.pem
 Host Worktool
   HostName 52.79.36.47
   User ubuntu
@@ -30,6 +35,10 @@ Host Land
   User ubuntu
   Port 34185
   IdentityFile /Users/chang-yongsu/.ssh/land.pem
+Host Home
+  HostName bangbaehome.synology.me
+  Port 2223
+  User HomeAdmin
 
 Host *
 	IdentityAgent /Users/chang-yongsu/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
