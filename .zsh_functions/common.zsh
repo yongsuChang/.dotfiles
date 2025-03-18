@@ -59,6 +59,70 @@ deploy() {
   esac
 }
 
+# space 배포 스크립트
+space_deploy() {
+  # 프로젝트와 서버 값 제한
+  local allowedServers=("space" "space_test")
+  local projectDir=""
+
+  # 첫 번째 인자: project
+  case "$1" in
+    admin)
+      projectDir="$HOME/git/konkuk-back/konkuk-admin"
+      ;;
+    customer)
+      projectDir="$HOME/git/konkuk-back/konkuk-customer"
+      ;;
+    both)
+      projectDir="$HOME/git/konkuk-back"
+      ;;
+    *)
+      echo "❌ Error: Invalid project '$1'. Allowed: admin, customer, both"
+      return 1
+      ;;
+  esac
+
+  # 두 번째 인자: branch
+  local branch="$2"
+  if [[ -z "$branch" ]]; then
+    echo "❌ Error: Branch is required."
+    return 1
+  fi
+
+  # 세 번째 인자: server
+  local server="$3"
+  if ! [[ " ${allowedServers[@]} " =~ " ${server} " ]]; then
+    echo "❌ Error: Invalid server '$server'. Allowed: ${allowedServers[*]}"
+    return 1
+  fi
+
+  # 최종 확인 메시지
+  echo "🔔 ${branch} 브랜치 환경으로 ${1} 프로젝트를 ${server} 서버에 배포하시겠습니까? (Y/n)"
+  read -r confirmation
+
+  case "$confirmation" in
+    [Yy]*)
+      echo "🚀 Deploying ${1} to ${server} with branch ${branch}..."
+
+      if [[ "$1" == "both" ]]; then
+        # admin과 customer 모두 배포
+        (cd "$HOME/git/konkuk-back/konkuk-admin" && gh workflow run "space-deploy.yml" --ref "${branch}" --field server="${server}" --field project="admin")
+        (cd "$HOME/git/konkuk-back/konkuk-customer" && gh workflow run "space-deploy.yml" --ref "${branch}" --field server="${server}" --field project="customer")
+      else
+        # 단일 프로젝트 배포
+        (cd "$projectDir" && gh workflow run "space-deploy.yml" --ref "${branch}" --field server="${server}" --field project="${1}")
+      fi
+      ;;
+    [Nn]*)
+      echo "🛑 Deployment canceled."
+      ;;
+    *)
+      echo "❌ Invalid input. Deployment canceled."
+      ;;
+  esac
+}
+
+
 dbclone() {
   local schema=$1
 
