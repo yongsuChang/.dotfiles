@@ -16,3 +16,5 @@
   conflictstyle = zdiff3
 [pull]
 	rebase = true
+[fetch]
+  prune = true
