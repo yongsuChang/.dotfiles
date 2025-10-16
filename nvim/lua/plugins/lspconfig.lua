@@ -6,25 +6,33 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      local lspconfig = require("lspconfig")
+      -- util만 별도 모듈에서 사용 (lspconfig 본체 require 불필요)
+      local util = require("lspconfig.util")
+      local root_pattern = util.root_pattern
+
       local mason_lspconfig = require("mason-lspconfig")
-      local root_pattern = require("lspconfig").util.root_pattern
 
-      local excluded_filetypes = { "c", "cpp", "python" }  -- 제외할 파일 타입 목록
+      -- 필요하면 공통 디폴트 옵션을 한 번에 지정
+      -- 모든 LSP에 공통 적용됨
+      vim.lsp.config("*", {
+        -- on_attach = function(client, bufnr) ... end,
+        -- capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      })
 
-      -- Mason 설정
+      -- Mason ensure_installed
       mason_lspconfig.setup({
         ensure_installed = {
-          -- "jdtls",       -- Java Language Server
-          "ts_ls",    -- TypeScript Language Server
-          "tailwindcss", -- TailwindCSS Language Server
+          -- "jdtls",
+          "ts_ls",
+          "tailwindcss",
         },
       })
 
-      -- OS별 설정
+      ----------------------------------------------------------------
+      -- OS / jdtls 경로 설정
+      ----------------------------------------------------------------
       local mason_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
-      local os_name
-      local java_path
+      local os_name, java_path
 
       if vim.fn.has("mac") == 1 then
         os_name = "mac"
@@ -34,18 +42,22 @@ return {
         java_path = "/usr/lib/jvm/java-21-openjdk-amd64/bin/java"
       else
         os_name = "win"
-        java_path = "C:/Program Files/Java/jdk-21/bin/java.exe"  -- Windows 환경에 맞게 변경 필요
+        java_path = "C:/Program Files/Java/jdk-21/bin/java.exe"
       end
 
       local config_path = mason_path .. "/config_" .. os_name
-
       local jar_pattern = mason_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"
       local launcher_jar = vim.fn.glob(jar_pattern)
-      local project_root = require("jdtls.setup").find_root({ "gradlew", "pom.xml", "build.gradle", ".git" }) or vim.fn.getcwd()
-      local workspace_dir = vim.fn.stdpath("cache") .. "/jdtls/workspace/" .. vim.fn.fnamemodify(project_root, ":p:h:t")
-      local build_classes = project_root .. "/build/classes/java/main"
 
-      lspconfig.jdtls.setup({
+      local jdtls_root = require("jdtls.setup").find_root({ "gradlew", "pom.xml", "build.gradle", ".git" }) or vim.fn.getcwd()
+      local workspace_dir = vim.fn.stdpath("cache") .. "/jdtls/workspace/" .. vim.fn.fnamemodify(jdtls_root, ":p:h:t")
+
+      ----------------------------------------------------------------
+      -- 각 서버별 구성: vim.lsp.config + vim.lsp.enable
+      ----------------------------------------------------------------
+
+      -- Java (jdtls)
+      vim.lsp.config("jdtls", {
         cmd = {
           java_path,
           "-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -62,19 +74,21 @@ return {
           "-configuration", config_path,
           "-data", workspace_dir,
         },
-        root_dir = lspconfig.util.root_pattern("pom.xml", "gradlew", "build.gradle", ".git"),
+        root_dir = util.root_pattern("pom.xml", "gradlew", "build.gradle", ".git"),
       })
+      vim.lsp.enable("jdtls")
 
-      -- TypeScript 설정
-      lspconfig.ts_ls.setup({
+      -- TypeScript (ts_ls)
+      vim.lsp.config("ts_ls", {
         on_attach = function(client, bufnr)
           client.server_capabilities.documentFormattingProvider = false
           client.server_capabilities.documentRangeFormattingProvider = false
         end,
       })
+      vim.lsp.enable("ts_ls")
 
-      -- TailwindCSS 설정
-      lspconfig.tailwindcss.setup({
+      -- Tailwind CSS
+      vim.lsp.config("tailwindcss", {
         root_dir = root_pattern("tailwind.config.js", "package.json", ".git"),
         settings = {
           tailwindCSS = {
@@ -85,18 +99,22 @@ return {
         },
         filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact" },
       })
+      vim.lsp.enable("tailwindcss")
 
-      -- LTeX 설정
-      -- lspconfig.ltex.setup({
+      ----------------------------------------------------------------
+      -- LTeX (필요 시 주석 해제)
+      ----------------------------------------------------------------
+      -- local excluded_filetypes = { "c", "cpp", "python" }
+      -- vim.lsp.config("ltex", {
       --   filetypes = {
       --     "plaintext", "markdown", "tex", "gitcommit", "org",
       --     "java", "javascript", "javascriptreact", "typescript", "typescriptreact",
-      --     "html", "css", "lua", "vim", "sh", "json", "yaml"
+      --     "html", "css", "lua", "vim", "sh", "json", "yaml",
       --   },
       --   on_attach = function(client, bufnr)
       --     local ft = vim.bo.filetype
-      --     for _, excluded in ipairs(excluded_filetypes) do
-      --       if ft == excluded then
+      --     for _, ex in ipairs(excluded_filetypes) do
+      --       if ft == ex then
       --         client.stop()
       --         return
       --       end
@@ -105,12 +123,11 @@ return {
       --   settings = {
       --     ltex = {
       --       language = "en-US",
-      --       dictionary = {
-      --         ["en-US"] = {},
-      --       },
+      --       dictionary = { ["en-US"] = {} },
       --     },
       --   },
       -- })
+      -- vim.lsp.enable("ltex")
     end,
   },
 }

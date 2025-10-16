@@ -5,54 +5,48 @@ return {
     opts = require "configs.conform",
   },
 
-  -- Java 관련 LSP 설정
+  -- Java: nvim-jdtls (이 플러그인은 자체 런처를 쓰므로 여기서는 lspconfig 호출 불필요)
   {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
     dependencies = {
-      "neovim/nvim-lspconfig"
+      "neovim/nvim-lspconfig",
     },
-    -- 만약 별도의 설정을 하고 싶다면 config 블록 추가
-    config = function()
-      -- 여기서 jdtls 설정 가능
-      require "configs.lspconfig"
-    end,
+    -- 필요시 별도 설정 파일에서 jdtls.start_or_attach 호출
+    -- config = function() require("configs.jdtls") end,
   },
 
-  -- TypeScript 관련 LSP 설정
+  -- LSP (TypeScript/JavaScript, TailwindCSS) - 새 API로 통합
   {
     "neovim/nvim-lspconfig",
-    ft = { "typescript", "javascript" },
-    dependencies = {
-      "williamboman/mason.nvim", -- LSP 설치 관리
-      "williamboman/mason-lspconfig.nvim" -- LSP 설정 관리
-    },
-    config = function()
-      require("lspconfig").tsserver.setup({})
-    end,
-  },
-
-  -- TailwindCSS 관련 LSP 설정
-  {
-    "neovim/nvim-lspconfig",
-    ft = { "html", "css", "javascript", "typescript" },
+    ft = { "typescript", "javascript", "html", "css" },
     dependencies = {
       "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim"
+      "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      require("lspconfig").tailwindcss.setup({})
+      -- 기존: require("lspconfig").tsserver.setup({})
+      -- 새 API: 서버 설정을 정의하고 활성화
+      vim.lsp.config("tsserver", {
+        -- 필요 옵션을 여기에
+        -- settings = { ... },
+      })
+      vim.lsp.enable("tsserver")
+
+      -- 기존: require("lspconfig").tailwindcss.setup({})
+      vim.lsp.config("tailwindcss", {
+        -- 필요 옵션을 여기에
+      })
+      vim.lsp.enable("tailwindcss")
     end,
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
+  -- 예시 트리시터 (원문 주석 유지)
   -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
+  --   "nvim-treesitter/nvim-treesitter",
+  --   opts = {
+  --     ensure_installed = { "vim", "lua", "vimdoc", "html", "css" },
+  --   },
   -- },
 }
+
