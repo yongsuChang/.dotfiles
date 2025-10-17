@@ -175,7 +175,7 @@ dbclone() {
 
   # 1. 스키마 덤프
   echo "${INFO_ICON} 스키마를 덤프 중입니다..."
-  mariadb-dump -h $addressProduct -P $portProduct -u ssingeat -p$password $SSL_OPTION reservation > $temp_path
+  mariadb-dump -h $addressProduct -P $portProduct -u ssingeat -p$password $SSL_OPTION contract > $temp_path
   if [[ $? -ne 0 ]]; then
     echo "${ERROR_ICON} 스키마 덤프 실패: ${schema}"
     return 1
