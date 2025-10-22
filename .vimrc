@@ -1,4 +1,8 @@
 " General configs
+scriptencoding utf-8
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,cp949,default,latin1
 set nocompatible " able keyboard cursor
 
 " Indentation
