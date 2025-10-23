@@ -28,8 +28,12 @@ syntax enable " setting colors depending on the grammer
 
 " Plugins
 "" require `vim-plug`, `git`
-"" https://github.com/junegunn/vim-plug#installation
-"" :PlugInstall command required
+""" https://github.com/junegunn/vim-plug#installation
+""" :PlugInstall command required
+"" For root user to copy user's vimrc
+""" sudo ln -s /home/username/.vimrc /root/.vimrc
+""" sudo ln -s /home/username/.vim /root/.vim
+
 call plug#begin()
 
 Plug 'ghifarit53/tokyonight-vim'
