@@ -4,7 +4,7 @@
 [user]
 	name = YongSu Chang
 	email = ahae91@gmail.com
-  signingkey = "key::ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDo61GZ3CaWfY4r68E60cX6+UMb0aME+G/3XkIRlo0HxSeav/esITYeacZaDfHOdO5C9odbOw9KwSybJaD9W0O0= MacBookPro16@secretive.장용수의-MacBook Pro.local"
+  signingkey = ""
 [commit]
   verbose = true
   gpgsign = yes
