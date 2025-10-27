@@ -1,3 +1,82 @@
+# ===== Swap helpers ==========================================================
+# 사용법:
+#   enable_swap [SIZE_MB] [SWAPFILE_PATH]
+#     예) enable_swap           # 2048MB를 /mnt/swapfile로 생성
+#         enable_swap 4096      # 4096MB를 /mnt/swapfile로 생성
+#         enable_swap 1024 /swapfile
+#
+#   disable_swap [SWAPFILE_PATH]
+#     예) disable_swap          # /mnt/swapfile 비활성화 및 삭제
+#         disable_swap /swapfile
+
+enable_swap() {
+  local size_mb="${1:-2048}"
+  local swapfile="${2:-/mnt/swapfile}"
+
+  echo "ℹ️  현재 스왑 상태:"
+  sudo swapon --show || true
+  echo
+
+  if [[ -f "$swapfile" ]]; then
+    echo "⚠️  스왑 파일이 이미 존재합니다: $swapfile"
+  fi
+
+  # 이미 어떤 스왑이든 활성화되어 있는지 안내
+  if sudo swapon --show | grep -q . ; then
+    echo "⚠️  현재 활성화된 스왑이 있습니다."
+  fi
+
+  echo "🔔 ${size_mb}MB 크기의 스왑을 '${swapfile}' 경로에 생성/활성화 하시겠습니까? (Y/n)"
+  read -r ans
+  case "$ans" in
+    [Nn]* ) echo "🛑 작업을 취소했습니다."; return 1 ;;
+  esac
+
+  # 생성
+  echo "🧱 스왑 파일 생성 중: $swapfile (${size_mb}MB)"
+  sudo dd if=/dev/zero of="$swapfile" bs=1M count="$size_mb" status=progress
+  sudo chmod 600 "$swapfile"
+  sudo mkswap "$swapfile"
+  sudo swapon "$swapfile"
+
+  echo
+  echo "✅ 스왑 활성화 완료. 현재 상태:"
+  sudo swapon --show
+}
+
+disable_swap() {
+  local swapfile="${1:-/mnt/swapfile}"
+
+  echo "ℹ️  현재 스왑 상태:"
+  sudo swapon --show || true
+  echo
+
+  if [[ ! -f "$swapfile" ]]; then
+    echo "⚠️  지정한 스왑 파일이 존재하지 않습니다: $swapfile"
+    echo "   그래도 스왑 비활성화를 시도할까요? (Y/n)"
+    read -r cont
+    case "$cont" in
+      [Nn]* ) echo "🛑 작업을 취소했습니다."; return 1 ;;
+    esac
+  else
+    echo "🔔 '${swapfile}' 스왑을 비활성화하고 파일을 삭제합니다. 진행하시겠습니까? (Y/n)"
+    read -r ans
+    case "$ans" in
+      [Nn]* ) echo "🛑 작업을 취소했습니다."; return 1 ;;
+    esac
+  fi
+
+  echo "🧹 스왑 비활성화 중: $swapfile"
+  sudo swapoff "$swapfile" 2>/dev/null || true
+
+  echo "🗑️  스왑 파일 삭제 중: $swapfile"
+  sudo rm -f "$swapfile"
+
+  echo
+  echo "✅ 스왑 비활성화/삭제 완료. 현재 상태:"
+  sudo swapon --show || true
+}
+# ============================================================================
 # 배포 관련
 deploy() {
   # 프로젝트와 서버 값 제한
