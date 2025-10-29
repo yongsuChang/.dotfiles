@@ -42,6 +42,7 @@ call plug#end()
 
 " Color scheme - tokyonignt
 set termguicolors
+set t_Co=256
 set background=dark
 
 let g:tokyonight_style = 'night' " available: night, storm
