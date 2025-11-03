@@ -3,18 +3,15 @@
 - Windows Subsystem for Linux
 - Windows에 기본으로 설치할 수 있는 linux 환경
 - <a href="https://learn.microsoft.com/ko-kr/windows/wsl/install" target="_blank">WSL 설명</a>
-
 ### 0-1. 사용 이유?
 - 개발 세팅 간편화
 - 개발 환경과 배포 환경의 유사성 확보
 - 개발 환경 복제
-
 ## 1. WSL 설치
 1. Microsoft Store에서 Ubuntu 24.x 다운로드
 2. `Windows 기능 켜기/끄기`에서 `Linux용 Windows 하위 시스템` 활성화하기
 3. cmd 창에서 ``` wsl.exe --update ``` 실행
 4. 다운 받은 Ubuntu 24.x 실행
-
 ## 2. 필요 프로그램 설치
 ### 2-1. 기본 준비
     ```
@@ -44,7 +41,6 @@
         cat ~/.ssh/id_ed25519.pub
         // ssh-ed25519 ~~~~~~ e메일 주소 까지 다 복사해야 함
         ```
-
         - Github에 ssh key 등록
             - GitHub에 로그인 후, Settings → SSH and GPG keys 이동
             - "New SSH Key" 버튼 클릭
@@ -55,7 +51,6 @@
         // 연결 확인
         ssh -T git@github.com
         ```
-
         - git 관련 여러 설정 등록
         ```
         git config --global user.name "Your Name"
@@ -64,11 +59,8 @@
         git config --global core.editor vim
         // editor는 나중에 nvim으로 바꾸는게 좋음
         ```
-
 ### 2-2. 편의 기능 설치
-
 > 개인적으로는 3-1에 있는 font 및 p10k 추천, neovim 다운 뒤 NvChad 등 설치도 추천
-
 - neovim : Improved vim
     - 0.11.0-dev
     ```
@@ -76,7 +68,6 @@
     sudo apt update
     sudo apt install neovim -y
     ```
-
 ```
 // install
 sudo add-apt-repository ppa:neovim-ppa/unstable
@@ -88,22 +79,18 @@ sudo update-alternatives --config vim
 sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 10
 sudo update-alternatives --config vi
 ```
-
 - ripgrep : Improved grep
     ```
     sudo apt install ripgrep
     ```
-
 - lsd : Prettier ls
     ```
     sudo apt install lsd
     ```
-
 - fd-find : file name search
     ```
     sudo apt install fd-find
     ```
-
 ### 2-3. 작업 필수 프로그램
 ***FrontEnd***
 - NodeJS : 
@@ -116,19 +103,16 @@ sudo update-alternatives --config vi
     ```
     nvm install --lts
     ```
-
 - gcc : compiler
     ```
     sudo apt install gcc
     ```
-
 - pnpm : faster package installer
     - Link: [pnpm install][pnpm-link]
     - 10.0.0
     ```
     npm install -g pnpm@latest-10
     ```
-
 ***BackEnd***
 - openjdk17 (21은 숫자만 바꾸면 가능)
     ```
@@ -163,7 +147,6 @@ sudo update-alternatives --config vi
     # gradle 데몬 실행
     ./gradlew bootRun
     ```
-
 ## 3. Optional
 ### 3-1. 커스터마이징 기능
 - fonts : 개발에 좋게 unicode glyph 변경해 놓은 폰트
@@ -173,7 +156,6 @@ sudo update-alternatives --config vi
     - Link : [PowerLevel10k][powerlevel10k-link]
 - NvChad : Fancier neovim
     - Link: [NvChad install][nvchad-link]
-
 ### 3-2. 추가 기능
 - net-tools : netstat등 사용 가능, 네트워크 상황 감시 가능
     ```
@@ -250,7 +232,6 @@ sudo update-alternatives --config vi
     sudo apt update
     sudo apt install telnet
     ```
-
 ## 4.환경 설정
 ### 4-1. (선택)환경 설정 덮어쓰기
 - repository clone or fork
@@ -263,7 +244,6 @@ sudo update-alternatives --config vi
     git clone git@github.com:yongsuChang/.dotfiles.git
     ```
     - 이후 [Nvim 설정 그대로 적용하기][Adjust-link] 참조
-
 ### 4-2. (선택)환경 설정 직접 하기
 - zsh
     ```
@@ -287,7 +267,6 @@ sudo update-alternatives --config vi
     // 키 매핑 세팅
     vim mappings.lua
     ```
-
 ## 5. (선택)IDE 사용
 ### 5-1. IntelliJ
 - IntelliJ linlux용 다운로드(tar.gz 형식)
@@ -311,13 +290,10 @@ sudo update-alternatives --config vi
     /opt/idea/bin/idea
     // 또는 /opt/idea/bin/idea.sh
     ```
-
 ### 5-2. VCS
     - Plugin으로 WSL 다운
     - 최좌측 최하단 파란 버튼 클릭(호버시 Open a remote window라고 뜸)
         - Connect to Wsl로 진입
-
-
 ## 6. 환경 변수
 - AWS parameterStore 사용 시 환경 변수 설정
     ```
@@ -330,10 +306,7 @@ sudo update-alternatives --config vi
     DB_PRODUCT_PASSWORD
     DB_PRODUCT_URL
     DB_TEST_URL
-
     ```
-
-
 [wsl-link]: https://learn.microsoft.com/ko-kr/windows/wsl/install, "Go "
 [node-link]:  "Go node"
 [pnpm-link]: https://pnpm.io/ko/installation "Go pnpm"
@@ -342,3 +315,4 @@ sudo update-alternatives --config vi
 [nvchad-link]: https://nvchad.com/docs/quickstart/install "Go NvChad"
 [Adjust-link]: https://github.com/yongsuChang/.dotfiles/tree/main/nvim#%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0, "Go Adjust"
 [Intellij-link]: https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC "Go IntelliJ download"
+

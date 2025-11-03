@@ -1,16 +1,12 @@
 # 디원더 linux-WSL 설정 파일들에 대한 설명입니다.
-
 ## WSL 전체 환경 설정 방법
 - [WSL 환경설정 방법으로 가기](https://github.com/yongsuChang/.dotfiles/blob/main/wsl_manual.md "Go to manual")
-
 ## 설정 덮어쓰기 방법
 - [zsh 설정 덮어쓰기 방법으로 가기](https://github.com/yongsuChang/.dotfiles/tree/main?tab=readme-ov-file#%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0 "Go to zsh")
 - [NeoVim 설정 덮어쓰기 방법으로 가기](https://github.com/yongsuChang/.dotfiles/tree/main/nvim "Go to nvim")
 - <a href="https://github.com/yongsuChang/.dotfiles/blob/main/install.md" target="_blank">추가 기능 설치 방법으로 가기</a>
-
 ## zsh 관련 설정
 - `.zshrc` : zsh 설정 파일
-
 ### 그대로 사용하기
     - 이 repository clone
     - 기존 zsh 관련 설정 파일들을 삭제하고, 이 zshrc를 심볼릭 링크 해야 함
@@ -21,7 +17,6 @@
     // 심볼릭 링크 생성
     ln -s ~/{이 repository 상대 위치}/.zshrc ~/.zshrc
     ```
-
 ### 기본 설정
 - `powerlevel10k` : 터미널 프롬프트 설정
 - `fcitx` : 한글 입력 설정
@@ -29,8 +24,6 @@
 - `nvm` : Node Version Manager 환경 설정
 - `gradle` : Gradle 환경 설정
 - `IntelliJ` : IntelliJ GUI 사용 금지 설정
-
-
 ### 키매핑
 - `ls` : `lsd`로 대체
 - `ll` : `lsd -l`로 대체

@@ -24,21 +24,18 @@
     sudo apt update
     sudo apt install lsd
     ```
-
 - fd-find : file name search
     ```
     // install
     sudo apt update
     sudo apt install fd-find
     ```
-
 - zip unzip : zip file manager
     ```
     // install
     sudo apt update
     sudo apt install zip unzip
     ```
-
 - openjdk17
     ```
     sudo apt update
@@ -73,7 +70,6 @@
     # gradle 데몬 실행
     ./gradlew bootRun
     ```
-
 - noto-san-cjk
     ```
     // install
@@ -101,8 +97,6 @@
     export XMODIFIERS="@im=fcitx"
     export DefaultIMModule=fcitx
     ```
-
-
 ### Optional
 - net-tools : netstat
     ```
@@ -179,7 +173,6 @@
     sudo apt update
     sudo apt install telnet
     ```
-
 - tmux
     ```
     sudo apt update
@@ -215,16 +208,13 @@
     ```
     - node : 22.13.0
     - npm : 10.9.2
-
 ### Build
 - pnpm : faster package installer
     - Link: [pnpm install][pnpm-link]
     - 10.0.0
-
 ### Customize
 - NvChad : Fancier neovim
  - Link: [NvChad install][nvchad-link]
-
 - LazyGit : Git GUI
     ```
     // install
@@ -252,7 +242,6 @@
     ```
     npm install -g tailwindcss-language-server
     ```
-
 ### Reminder
 - Wayland error
     ```
@@ -265,10 +254,10 @@
     touch /run/user/1000/wayland-0
     chmod 600 /run/user/1000/wayland-0
     ```
-
 [nvim-link]: https://github.com/neovim/neovim/blob/master/INSTALL.md#ubuntu "Go neovim"
 [nerdfonts-link]: https://www.nerdfonts.com "Go Nerdfonts"
 [powerlevel10k-link]: https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#installation "Go p10k"
 [node-link]: https://github.com/nodesource/distributions?tab=readme-ov-file#using-ubuntu-nodejs-22 "Go node"
 [pnpm-link]: https://pnpm.io/ko/installation "Go pnpm"
 [nvchad-link]: https://nvchad.com/docs/quickstart/install "Go NvChad"
+

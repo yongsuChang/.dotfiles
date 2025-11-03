@@ -166,7 +166,6 @@
                           }
                         }
                         ```
-
 # 4. LazyGit
 - Git GUI
     - install : 최신 버젼 다운로드, 설치
@@ -202,3 +201,4 @@
         -- <leader>lg로 LazyGit 실행
         map("n", "<leader>lg", ":LazyGit<CR>", { desc = "Start LazyGit", noremap = true, silent = true })
         ```
+
