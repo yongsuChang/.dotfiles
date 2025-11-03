@@ -40,7 +40,7 @@ Plug 'ghifarit53/tokyonight-vim'
 
 call plug#end()
 
-" Color scheme - tokyonignt
+" Color scheme - tokyonight
 set termguicolors
 set t_Co=256
 set background=dark
