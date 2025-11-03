@@ -108,7 +108,7 @@ sudo update-alternatives --config vi
     sudo apt install gcc
     ```
 - pnpm : faster package installer
-    - Link: [pnpm install][pnpm-link]
+    - Link: <a href="https://pnpm.io/ko/installation" target="_blank">pnpm 설치 페이지</a>
     - 10.0.0
     ```
     npm install -g pnpm@latest-10
@@ -151,11 +151,11 @@ sudo update-alternatives --config vi
 ### 3-1. 커스터마이징 기능
 - fonts : 개발에 좋게 unicode glyph 변경해 놓은 폰트
     - 디원더 default: CaskaydiaCove Nerd font
-    - Link: [NERD FONTS][nerdfonts-link]
+    - Link: <a href="https://www.nerdfonts.com" target="_blank">NerdFont</a>
 - p10k : Shell styling
-    - Link : [PowerLevel10k][powerlevel10k-link]
+    - Link : <a href="https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#installation" target="_blank">PowerLevel10K 설치 페이지</a>
 - NvChad : Fancier neovim
-    - Link: [NvChad install][nvchad-link]
+    - Link: <a href="https://nvchad.com/docs/quickstart/install" target="_blank">NvChad quick start 페이지</a>
 ### 3-2. 추가 기능
 - net-tools : netstat등 사용 가능, 네트워크 상황 감시 가능
     ```
@@ -243,7 +243,7 @@ sudo update-alternatives --config vi
     // SSH
     git clone git@github.com:yongsuChang/.dotfiles.git
     ```
-    - 이후 [Nvim 설정 그대로 적용하기][Adjust-link] 참조
+    - 이후 <a href="https://github.com/yongsuChang/.dotfiles/tree/main/nvim#%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0" target="_blank">Nvim 설정 그대로 적용하기</a>
 ### 4-2. (선택)환경 설정 직접 하기
 - zsh
     ```
@@ -270,8 +270,7 @@ sudo update-alternatives --config vi
 ## 5. (선택)IDE 사용
 ### 5-1. IntelliJ
 - IntelliJ linlux용 다운로드(tar.gz 형식)
-    - [IntelliJ linux 다운][Intellij-link]
-
+    - <a href="https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC" target="_blank">IntelliJ linux 다운</a>
     ```
     // 접근 쉬운 temp 폴더 생성
     mkdir ~/temp
@@ -307,12 +306,4 @@ sudo update-alternatives --config vi
     DB_PRODUCT_URL
     DB_TEST_URL
     ```
-[wsl-link]: https://learn.microsoft.com/ko-kr/windows/wsl/install, "Go "
-[node-link]:  "Go node"
-[pnpm-link]: https://pnpm.io/ko/installation "Go pnpm"
-[nerdfonts-link]: https://www.nerdfonts.com "Go Nerdfonts"
-[powerlevel10k-link]: https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#installation "Go p10k"
-[nvchad-link]: https://nvchad.com/docs/quickstart/install "Go NvChad"
-[Adjust-link]: https://github.com/yongsuChang/.dotfiles/tree/main/nvim#%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0, "Go Adjust"
-[Intellij-link]: https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC "Go IntelliJ download"
 
