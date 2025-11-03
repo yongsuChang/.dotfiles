@@ -1,10 +1,10 @@
 # 디원더 linux-WSL 설정 파일들에 대한 설명입니다.
 ## WSL 전체 환경 설정 방법
-- [WSL 환경설정 방법으로 가기](https://github.com/yongsuChang/.dotfiles/blob/main/wsl_manual.md "Go to manual")
+- [WSL 환경설정 방법으로 가기](https://github.com/yongsuChang/.dotfiles/blob/main/manuals/wsl_manual.md "Go to manual")
 ## 설정 덮어쓰기 방법
 - [zsh 설정 덮어쓰기 방법으로 가기](https://github.com/yongsuChang/.dotfiles/tree/main?tab=readme-ov-file#%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0 "Go to zsh")
 - [NeoVim 설정 덮어쓰기 방법으로 가기](https://github.com/yongsuChang/.dotfiles/tree/main/nvim "Go to nvim")
-- <a href="https://github.com/yongsuChang/.dotfiles/blob/main/install.md" target="_blank">추가 기능 설치 방법으로 가기</a>
+- <a href="https://github.com/yongsuChang/.dotfiles/blob/main/manuals/addon_install.md" target="_blank">추가 기능 설치 방법으로 가기</a>
 ## zsh 관련 설정
 - `.zshrc` : zsh 설정 파일
 ### 그대로 사용하기
