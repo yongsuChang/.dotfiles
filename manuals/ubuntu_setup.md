@@ -6,6 +6,15 @@ sudo apt update
 sudo apt install -y curl git vim net-tools
 sudo apt upgrade -y
 ```
+### 시간대 설정
+- 현재 시간대 확인
+```bash
+timedatectl
+```
+- 시간대 설정(예: Asia/Seoul)
+```bash
+sudo timedatectl set-timezone Asia/Seoul
+```
 ### github SSH 키 생성 및 등록
 - SSH 키 생성
 ```bash
