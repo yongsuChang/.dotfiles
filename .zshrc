@@ -64,7 +64,7 @@ alias l='lsd -Al'
 ## git
 alias notpush='git log --branches --not --remotes'
 alias lg='lazygit'
-alias gpull='(cd ~/git/.dotfiles && git pull) && (cd ~/git/secret && git pull)'  # dotfiles와 secret 프로젝트 pull
+alias gpull='(cd ~/git/.dotfiles && git pull) && (cd ~/git/secrets && git pull)'  # dotfiles와 secrets 프로젝트 pull
 
 ## jira
 alias jl='jira issue list'  # Jira CLI 명령어 줄임말
