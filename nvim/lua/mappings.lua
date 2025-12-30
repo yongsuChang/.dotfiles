@@ -14,8 +14,11 @@ map("n", "<S-F>", ":Telescope live_grep<CR>", { desc = "Search Text" }) -- 텍�
 map("n", "<S-R>", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Find and Replace" })
 map("n", "<S-R>", ":lua require('spectre').open()<CR>", { noremap = true, silent = true, desc = "Find and Replace" })
 
--- <leader> ca로 LSP Code Action 실행
+-- <leader>ca로 LSP Code Action 실행
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
+
+-- Go to definition
+map("n", "<C-]>", vim.lsp.buf.definition, { desc = "LSP Go to definition" })
 
 ---- Theme switcher
 map("n", "<C-t>", function()

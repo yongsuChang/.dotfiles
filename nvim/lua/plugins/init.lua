@@ -12,8 +12,9 @@ return {
     dependencies = {
       "neovim/nvim-lspconfig",
     },
-    -- 필요시 별도 설정 파일에서 jdtls.start_or_attach 호출
-    -- config = function() require("configs.jdtls") end,
+    config = function()
+      require("configs.jdtls").setup()
+    end,
   },
 
   -- LSP (TypeScript/JavaScript, TailwindCSS) - 새 API로 통합

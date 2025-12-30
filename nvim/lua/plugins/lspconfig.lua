@@ -22,7 +22,7 @@ return {
       -- Mason ensure_installed
       mason_lspconfig.setup({
         ensure_installed = {
-          -- "jdtls",
+          "jdtls",
           "ts_ls",
           "tailwindcss",
         },
@@ -31,52 +31,7 @@ return {
       ----------------------------------------------------------------
       -- OS / jdtls 경로 설정
       ----------------------------------------------------------------
-      local mason_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
-      local os_name, java_path
-
-      if vim.fn.has("mac") == 1 then
-        os_name = "mac"
-        java_path = "/opt/homebrew/Cellar/openjdk@21/21.0.6/bin/java"
-      elseif vim.fn.has("unix") == 1 then
-        os_name = "linux"
-        java_path = "/usr/lib/jvm/java-21-openjdk-amd64/bin/java"
-      else
-        os_name = "win"
-        java_path = "C:/Program Files/Java/jdk-21/bin/java.exe"
-      end
-
-      local config_path = mason_path .. "/config_" .. os_name
-      local jar_pattern = mason_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"
-      local launcher_jar = vim.fn.glob(jar_pattern)
-
-      local jdtls_root = require("jdtls.setup").find_root({ "gradlew", "pom.xml", "build.gradle", ".git" }) or vim.fn.getcwd()
-      local workspace_dir = vim.fn.stdpath("cache") .. "/jdtls/workspace/" .. vim.fn.fnamemodify(jdtls_root, ":p:h:t")
-
-      ----------------------------------------------------------------
-      -- 각 서버별 구성: vim.lsp.config + vim.lsp.enable
-      ----------------------------------------------------------------
-
-      -- Java (jdtls)
-      vim.lsp.config("jdtls", {
-        cmd = {
-          java_path,
-          "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-          "-Dosgi.bundles.defaultStartLevel=4",
-          "-Declipse.product=org.eclipse.jdt.ls.core.product",
-          "-Dlog.protocol=true",
-          "-Dlog.level=ALL",
-          "-Xms1g",
-          "--add-modules=ALL-SYSTEM",
-          "--add-opens=java.base/java.util=ALL-UNNAMED",
-          "--add-opens=java.base/java.lang=ALL-UNNAMED",
-          "-javaagent:" .. vim.fn.expand("~/.local/share/nvim/mason/packages/jdtls/lombok.jar"),
-          "-jar", launcher_jar,
-          "-configuration", config_path,
-          "-data", workspace_dir,
-        },
-        root_dir = util.root_pattern("pom.xml", "gradlew", "build.gradle", ".git"),
-      })
-      vim.lsp.enable("jdtls")
+      -- jdtls 설정은 configs/jdtls.lua에서 nvim-jdtls 플러그인을 통해 처리됩니다.
 
       -- TypeScript (ts_ls)
       vim.lsp.config("ts_ls", {
