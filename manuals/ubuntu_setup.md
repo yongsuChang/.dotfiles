@@ -1,5 +1,9 @@
 # Ubuntu setup guide
 ## 기본 설정
+### 사용자 비밀번호 변경
+```bash
+sudo passwd ubuntu
+```
 ### 필수 패키지 설치
 ```bash
 sudo apt update
@@ -29,6 +33,25 @@ cat ~/.ssh/id_ed25519.pub
   - "SSH and GPG keys" 메뉴 선택
   - "New SSH key" 버튼 클릭
   - Title 입력 및 Key에 복사한 SSH 키 붙여넣기 후 "Add SSH key" 버튼 클릭(Authencation key, signing key 모두 가능)
+### 환경 설정 파일 복사
+- git clone
+```bash
+mkdir ~/git
+cd ~/git
+git clone git@github.com:yongsuChang/.dotfiles.git
+```
+- 심볼릭 링크 생성
+```bash
+ln -s ~/git/.dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/git/.dotfiles/.vimrc ~/.vimrc
+ln -s ~/git/.dotfiles/.zshrc ~/.zshrc
+ln -s ~/git/.dotfiles/.zsh_functions ~/.zsh_functions
+
+## Optional
+# ln -s ~/git/.dotfiles/.tmux.conf ~/.tmux.conf
+# ln -s ~/git/.dotfiles/nvim ~/.config/nvim
+```
+
 ### 편의 패키지 설치
 ```bash
 # ripgrep, fd-find, lsd 설치
@@ -55,12 +78,13 @@ sudo npm install -g n
 # LTS 버전 설치
 sudo n install 24
 # 쉘 재실행(리로드 해야 node 버전이 반영됨)
-exec zsh
 ```
 - Powerlevel10k 설치
 ```bash
+cd ~
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+# 기존에 .zshrc 파일 없는 경우에만 아래 명령어 실행
+# echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 ```
 - zsh 설치 및 기본 쉘 변경
 ```bash
@@ -68,7 +92,31 @@ sudo apt install -y zsh
 chsh -s $(which zsh)
 exec zsh
 ```
-### nvim 설치
+### vim으로 설정 변경(사양 낮으면 필수, nvim 사용할꺼면 건너뛰기)
+- nvim 대신 vim 사용하도록 설정 변경
+```
+sed -i -e 's/^alias v=.*/alias v=vim/' -e 's/^alias vi=.*/alias vi=vim/' -e 's/^alias vim=.*/alias vim=vim/' ~/.zshrc
+sed -i 's/^export EDITOR=.*/export EDITOR=vim/' ~/.zshrc
+
+sed -i 's/^  editor = nvim/  editor = vim/' ~/.gitconfig
+source ~/.zshrc
+```
+- vim 플러그인 매니저 설치(vim-plug)
+```bash
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+- vim 플러그인 설치
+```vim
+# vim 실행 후 아래 명령어 입력
+:PlugInstall
+```
+- root 계정에 ubuntu 설정 심볼릭 링크 생성
+```bash
+sudo ln -s ~/.vim /root/.vim
+sudo ln -s ~/.vimrc /root/.vimrc
+```
+### nvim 설치(Optional - 사양 괜찮은 경우에만 설치 권장))
 - Neovim PPA 추가 및 설치
     - Ubuntu 패키지 레포지토리의 neovim 버전이 낮기 때문에, release 페이지에서 직접 받아 설치
     - [Release Page](https://github.com/neovim/neovim/releases)
@@ -81,6 +129,11 @@ tar xzvf nvim-linux-x86_64.tar.gz
 # /usr/local/neovim 디렉토리에 이동 및 심볼릭 링크 생성
 sudo mv nvim-linux-x86_64 /usr/local/neovim
 sudo ln -s /usr/local/neovim/bin/nvim /usr/bin/nvim
+```
+- 설정 복사
+```bash
+mkdir -p ~/.config
+cp -r ~/git/.dotfiles/nvim ~/.config/nvim
 ```
 - NVChad 설치
 ```bash
