@@ -103,8 +103,7 @@ source ~/.zshrc
 ```
 - vim 플러그인 매니저 설치(vim-plug)
 ```bash
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 - vim 플러그인 설치
 ```vim
