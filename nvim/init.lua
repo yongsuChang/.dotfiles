@@ -31,7 +31,7 @@ require("lazy").setup({
     branch = "v2.5",
     import = "nvchad.plugins",
   },
-  { import = "plugins" },
+  { import = "plugins.enabled" },
 }, {
   -- Lazy.nvim 설정 추가
   install = {
