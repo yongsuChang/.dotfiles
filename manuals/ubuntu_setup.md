@@ -60,6 +60,8 @@ sudo apt install -y ripgrep fd-find lsd
 ### zsh 설치
 - 폰트 설치(Nerd Fonts - CaskaydiaCove NF)
 ```bash
+cd ~
+
 # 폰트 설치
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.zip
 
@@ -69,6 +71,9 @@ unzip CascadiaCode.zip -d ~/.local/share/fonts/
 
 # 폰트 캐시 갱신
 fc-cache -fv
+
+# 다운로드한 zip 파일 삭제
+rm CascadiaCode.zip
 ```
 - 추가 패키지 설치(혹시 모를 플러그인 빌드 오류 방지)
 ```bash
