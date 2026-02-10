@@ -2,7 +2,7 @@
 ## 기본 설정
 ### 사용자 비밀번호 변경
 ```bash
-sudo passwd ubuntu
+sudo passwd $USER
 ```
 ### 필수 패키지 설치
 ```bash
