@@ -166,3 +166,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Added by Antigravity
 export PATH="~/.antigravity/antigravity/bin:$PATH"
+
+# Terraform auto complete
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
