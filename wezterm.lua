@@ -70,6 +70,7 @@ end
 
 if w.target_triple == 'aarch64-apple-darwin' or w.target_triple == 'x86_64-apple-darwin' then
   -- macOS specific settings
+  c.font_dirs = { w.home_dir .. '/Library/Fonts' }
   c.native_macos_fullscreen_mode = true
   c.window_decorations = 'MACOS_FORCE_ENABLE_SHADOW|RESIZE'
 
